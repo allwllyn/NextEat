@@ -40,6 +40,8 @@ class Yelper: NSObject {
             let methodParameters =
             [
                 Constants.YelpParameterKeys.Location: text.text!,
+                Constants.YelpParameterKeys.SortBy: Constants.YelpParameterValues.Sorter,
+                Constants.YelpParameterKeys.Limit: Constants.YelpParameterValues.LimitAmount
             ]
             placesFromYelpBySearch(methodParameters as [String:AnyObject])
             {success in
@@ -112,24 +114,20 @@ class Yelper: NSObject {
                 return
             }
             
-            /* GUARD: Did Yelp return an error (stat != ok)? */
-            guard let stat = parsedResult[Constants.YelpResponseKeys.Status] as? String, stat == Constants.YelpResponseValues.OKStatus else
-            {
-                displayError("Flickr API returned an error. See error code and message in \(parsedResult)")
+            print(parsedResult)
+            
+            
+            /* GUARD: Is the "businesses" key in our result? */
+            guard let placeList = parsedResult[Constants.YelpResponseKeys.Businesses] as? [[String:AnyObject]] else {
+                displayError("Cannot find keys '\(Constants.YelpResponseKeys.Businesses)' in \(parsedResult)")
                 return
             }
             
-            /* GUARD: Are the "photos" and "photo" keys in our result? */
-            guard let placeList = parsedResult[Constants.YelpResponseKeys.Businesses] as? [String:AnyObject], let placeArray = placeList[Constants.YelpResponseKeys.Name] as? [[String:AnyObject]] else {
-                displayError("Cannot find keys '\(Constants.YelpResponseKeys.Businesses)' and '\(Constants.YelpResponseKeys.Photo)' in \(parsedResult)")
-                return
-            }
-            
-            //MARK: Loop to append random photos to collection
-            if placeArray.count != 0
+            //MARK: Check if the place array contains any items
+            if placeList.count != 0
             {
             completion(true)
-            print(placeArray)
+            print(placeList)
             }
          
         }

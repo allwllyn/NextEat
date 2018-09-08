@@ -31,7 +31,7 @@ struct Constants {
         static let Method = "method"
         static let APIKey = "api_key"
         static let SortBy = "sort_by"
-        static let Format = "format"
+        static let Limit = "limit"
         static let NoJSONCallback = "nojsoncallback"
         static let Latitude = "latitude"
         static let Longitude = "longitude"
@@ -45,6 +45,7 @@ struct Constants {
        // static let SearchMethod = "https://api.yelp.com/v3/businesses/search"
         static let APIKey = "WWkGUJ8sJsZlpcZg01n9XKQK11VS2GTXegY34UJIuf3GTk5tjBbu_VAFTAanQ3Tbkf79BUjp14Bib9XrpWoVQParSTORPj7XbBB4zFZgosYL7ucrCBjzJGqxK7yNW3Yx"
         static let ResponseFormat = "json"
+        static let LimitAmount = "10"
         static let DisableJSONCallback = "1" /* 1 means "yes" */
        // static let GalleryPhotosMethod = //get something from yelp
         static let Sorter = "rating"
