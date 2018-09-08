@@ -18,7 +18,7 @@ class StartController: UIViewController {
     }
 
 
-    @IBAction func typeSearch(_ sender: Any) {
+@IBAction func typeSearch(_ sender: Any) {
 
         Yelper.sharedInstance().searchByPhrase(AnyObject.self as AnyObject, text: searchText)
     }

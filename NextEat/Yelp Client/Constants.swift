@@ -33,9 +33,9 @@ struct Constants {
         static let SortBy = "sort_by"
         static let Format = "format"
         static let NoJSONCallback = "nojsoncallback"
-        static let latitude = "latitude"
-        static let longitude = "longitude"
-        static let location = "location"
+        static let Latitude = "latitude"
+        static let Longitude = "longitude"
+        static let Location = "location"
         static let BoundingBox = "bbox"
         static let Page = "page"
     }

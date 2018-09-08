@@ -39,23 +39,27 @@ class Yelper: NSObject {
             // TODO: Set necessary parameters!
             let methodParameters =
             [
-                Constants.YelpParameterKeys.Method: Constants.YelpParameterValues.SearchMethod,
-                Constants.YelpParameterKeys.APIKey: Constants.YelpParameterValues.APIKey,
                 Constants.YelpParameterKeys.Location: text.text!,
             ]
             placesFromYelpBySearch(methodParameters as [String:AnyObject])
+            {success in
+                if success {
+                    print("succesful!")
+                }
+            }
         }
         else
         {
-            statusLabel.text = "Phrase Empty."
+            //statusLabel.text = "Phrase Empty."
+            print("phrase empty")
         }
     }
     
-    private func placesFromYelpBySearch(_ methodParameters: [String: AnyObject], _ completionHandler: @escaping (_ success: Bool) -> Void)
+    private func placesFromYelpBySearch(_ methodParameters: [String: AnyObject], _ completion: @escaping (_ success: Bool) -> Void)
     {
         
         let session = URLSession.shared
-        let request = URLRequest(url: yelpURLFromParameters(methodParameters))
+        var request = URLRequest(url: yelpURLFromParameters(methodParameters))
         request.addValue("Bearer \(Constants.YelpParameterValues.APIKey)", forHTTPHeaderField: "Authorization")
         
         let task =  session.dataTask(with: request)
@@ -121,10 +125,12 @@ class Yelper: NSObject {
                 return
             }
             
-            // select a random photo
-            
             //MARK: Loop to append random photos to collection
+            if placeArray.count != 0
+            {
+            completion(true)
             print(placeArray)
+            }
          
         }
         task.resume()
@@ -133,11 +139,11 @@ class Yelper: NSObject {
     }
     
 
-@IBAction func searchByLatLon(_ sender: AnyObject)
+/* @IBAction func searchByLatLon(_ sender: AnyObject)
 {
     
     
-    if isTextFieldValid(latitudeTextField, forRange: Constants.Yelp.SearchLatRange) && isTextFieldValid(longitudeTextField, forRange: Constants.Yelp.SearchLonRange)
+   
     {
         photoTitleLabel.text = "Searching..."
         // TODO: Set necessary parameters!
@@ -154,7 +160,7 @@ class Yelper: NSObject {
         photoTitleLabel.text = "Lat should be [-90, 90].\nLon should be [-180, 180]."
     }
 }
-    
+*/
     class func sharedInstance() -> Yelper
     {
         struct Singleton
@@ -163,5 +169,5 @@ class Yelper: NSObject {
         }
         return Singleton.sharedInstance
         
-    }
+    } 
 }
