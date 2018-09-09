@@ -32,6 +32,7 @@
 		4351E039213DD2E600DB378F /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4351E02A213DD2E600DB378F /* OFL.txt */; };
 		4351E03B213DD8EF00DB378F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E03A213DD8EF00DB378F /* Constants.swift */; };
 		4351E03E213DD92C00DB378F /* Yelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E03D213DD92C00DB378F /* Yelper.swift */; };
+		4351E0402145713900DB378F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E03F2145713900DB378F /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		4351E02A213DD2E600DB378F /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		4351E03A213DD8EF00DB378F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4351E03D213DD92C00DB378F /* Yelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yelper.swift; sourceTree = "<group>"; };
+		4351E03F2145713900DB378F /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				4351DFEA213DBDBE00DB378F /* AppDelegate.swift */,
 				4351DFEC213DBDBE00DB378F /* StartController.swift */,
+				4351E03F2145713900DB378F /* Place.swift */,
 				4351E03C213DD8FA00DB378F /* Yelp Client */,
 				4351DFEE213DBDBE00DB378F /* Main.storyboard */,
 				4351DFF4213DBDC000DB378F /* Assets.xcassets */,
@@ -345,6 +348,7 @@
 				4351DFED213DBDBE00DB378F /* StartController.swift in Sources */,
 				4351DFF3213DBDBE00DB378F /* NextEat.xcdatamodeld in Sources */,
 				4351E03E213DD92C00DB378F /* Yelper.swift in Sources */,
+				4351E0402145713900DB378F /* Place.swift in Sources */,
 				4351DFEB213DBDBE00DB378F /* AppDelegate.swift in Sources */,
 				4351E03B213DD8EF00DB378F /* Constants.swift in Sources */,
 			);

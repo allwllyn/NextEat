@@ -12,7 +12,7 @@ import UIKit
 class Yelper: NSObject {
 
     
-    var placeArray: [String] = []
+    var placeArray: [Place] = []
     
     private func yelpURLFromParameters(_ parameters: [String: AnyObject]) -> URL
     {
@@ -130,7 +130,9 @@ class Yelper: NSObject {
             {
                 for i in placeList
                 {
-                   self.placeArray.append(i["name"] as! String)
+                    let location = i["location"] as! [String:AnyObject]
+                  let foundPlace = Place(name: (i["name"] as! String), city: (location["city"] as! String), state: (location["state"] as! String))
+                   self.placeArray.append(foundPlace)
                 }
             completion(true)
             print(self.placeArray)
