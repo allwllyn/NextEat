@@ -12,6 +12,8 @@ import UIKit
 class Yelper: NSObject {
 
     
+    var placeArray: [String] = []
+    
     private func yelpURLFromParameters(_ parameters: [String: AnyObject]) -> URL
     {
         
@@ -126,8 +128,12 @@ class Yelper: NSObject {
             //MARK: Check if the place array contains any items
             if placeList.count != 0
             {
+                for i in placeList
+                {
+                   self.placeArray.append(i["name"] as! String)
+                }
             completion(true)
-            print(placeList)
+            print(self.placeArray)
             }
          
         }
