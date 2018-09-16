@@ -13,8 +13,7 @@ import UIKit
 class PlaceListController: UITableViewController
 {
     
-    var placeArray: [Place] = []
-    
+    var placeArray = [Place]()
     
     @IBOutlet var placeTable: UITableView!
     
@@ -23,18 +22,26 @@ class PlaceListController: UITableViewController
     override func viewDidLoad() {
         super .viewDidLoad()
         placeTable.delegate = self
-        placeArray = Yelper.sharedInstance().placeArray
+        placeArray = Yelper.sharedInstance().placeArray.sorted(by: {$0.name > $1.name})
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return  placeArray.count
+        return  1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return placeArray.count
     }
 
-    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let aPlace = placeArray[(indexPath.row)]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath) as! PlaceCell
+        
+        // Configure cell
+        cell.placeName?.text = aPlace.name
+        
+        return cell
+    }
 
     
     
