@@ -15,6 +15,9 @@ struct Place {
     var name: String
     var city: String
     var state: String
+    var image: String
+    var phone: String
+    var website: String
     
     
 }

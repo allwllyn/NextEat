@@ -80,7 +80,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="EX9-T5-5TR">
-                        <barButtonItem key="rightBarButtonItem" title="List" id="JJG-ar-gnP"/>
+                        <barButtonItem key="rightBarButtonItem" title="List" id="JJG-ar-gnP">
+                            <connections>
+                                <action selector="presentList:" destination="BYZ-38-t0r" id="N96-tK-JvQ"/>
+                                <segue destination="m30-0i-AGe" kind="show" id="g2z-ye-481"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchText" destination="beL-fZ-ayf" id="dPr-4c-3dZ"/>
@@ -130,7 +135,7 @@
         <!--Place List Controller-->
         <scene sceneID="YHO-Nz-xod">
             <objects>
-                <tableViewController id="m30-0i-AGe" customClass="PlaceListController" customModule="NextEat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PlaceListController" id="m30-0i-AGe" customClass="PlaceListController" customModule="NextEat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tgC-rc-rKY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,7 +186,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEQ-Ck-pHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2302" y="32"/>
+            <point key="canvasLocation" x="2119" y="32"/>
         </scene>
         <!--Place Detail Controller-->
         <scene sceneID="a5P-wc-kWi">
@@ -238,7 +243,7 @@
         <!--Navigation Controller-->
         <scene sceneID="HxW-1X-heV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d7U-yl-wDZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" id="d7U-yl-wDZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6GR-84-58g">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

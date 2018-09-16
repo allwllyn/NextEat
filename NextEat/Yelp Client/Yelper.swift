@@ -23,7 +23,8 @@ class Yelper: NSObject {
         components.path = Constants.Yelp.APIPath
         components.queryItems = [URLQueryItem]()
         
-        for (key, value) in parameters {
+        for (key, value) in parameters
+        {
             let queryItem = URLQueryItem(name: key, value: "\(value)")
             components.queryItems!.append(queryItem)
         }
@@ -46,8 +47,10 @@ class Yelper: NSObject {
                 Constants.YelpParameterKeys.Limit: Constants.YelpParameterValues.LimitAmount
             ]
             placesFromYelpBySearch(methodParameters as [String:AnyObject])
-            {success in
-                if success {
+            {
+                success in
+                if success
+                {
                     print("succesful!")
                 }
             }
@@ -131,7 +134,7 @@ class Yelper: NSObject {
                 for i in placeList
                 {
                     let location = i["location"] as! [String:AnyObject]
-                  let foundPlace = Place(name: (i["name"] as! String), city: (location["city"] as! String), state: (location["state"] as! String))
+                    let foundPlace = Place(name: (i["name"] as! String), city: (location["city"] as! String), state: (location["state"] as! String), image: (i["image_url"] as! String), phone: (i["phone"] as! String), website: (i["url"] as! String))
                    self.placeArray.append(foundPlace)
                 }
             completion(true)

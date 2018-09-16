@@ -33,6 +33,10 @@
 		4351E03B213DD8EF00DB378F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E03A213DD8EF00DB378F /* Constants.swift */; };
 		4351E03E213DD92C00DB378F /* Yelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E03D213DD92C00DB378F /* Yelper.swift */; };
 		4351E0402145713900DB378F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E03F2145713900DB378F /* Place.swift */; };
+		4351E04421457CC900DB378F /* PlaceListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E04321457CC900DB378F /* PlaceListController.swift */; };
+		4351E0462145A15500DB378F /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E0452145A15500DB378F /* PlaceCell.swift */; };
+		4351E0482145E48F00DB378F /* CityListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E0472145E48F00DB378F /* CityListController.swift */; };
+		4351E04A2148905B00DB378F /* PlaceDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E0492148905B00DB378F /* PlaceDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,10 @@
 		4351E03A213DD8EF00DB378F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4351E03D213DD92C00DB378F /* Yelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yelper.swift; sourceTree = "<group>"; };
 		4351E03F2145713900DB378F /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		4351E04321457CC900DB378F /* PlaceListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListController.swift; sourceTree = "<group>"; };
+		4351E0452145A15500DB378F /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		4351E0472145E48F00DB378F /* CityListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListController.swift; sourceTree = "<group>"; };
+		4351E0492148905B00DB378F /* PlaceDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,10 +144,10 @@
 			isa = PBXGroup;
 			children = (
 				4351DFEA213DBDBE00DB378F /* AppDelegate.swift */,
-				4351DFEC213DBDBE00DB378F /* StartController.swift */,
-				4351E03F2145713900DB378F /* Place.swift */,
+				4351E04221457C9900DB378F /* Controller */,
+				4351E04121457C8000DB378F /* Model */,
 				4351E03C213DD8FA00DB378F /* Yelp Client */,
-				4351DFEE213DBDBE00DB378F /* Main.storyboard */,
+				4351E04B2148B62E00DB378F /* View */,
 				4351DFF4213DBDC000DB378F /* Assets.xcassets */,
 				4351DFF6213DBDC000DB378F /* LaunchScreen.storyboard */,
 				4351DFF9213DBDC000DB378F /* Info.plist */,
@@ -197,6 +205,34 @@
 				4351E03A213DD8EF00DB378F /* Constants.swift */,
 			);
 			path = "Yelp Client";
+			sourceTree = "<group>";
+		};
+		4351E04121457C8000DB378F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4351E03F2145713900DB378F /* Place.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4351E04221457C9900DB378F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4351DFEC213DBDBE00DB378F /* StartController.swift */,
+				4351E0492148905B00DB378F /* PlaceDetailController.swift */,
+				4351E04321457CC900DB378F /* PlaceListController.swift */,
+				4351E0472145E48F00DB378F /* CityListController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4351E04B2148B62E00DB378F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4351DFEE213DBDBE00DB378F /* Main.storyboard */,
+				4351E0452145A15500DB378F /* PlaceCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +387,10 @@
 				4351E0402145713900DB378F /* Place.swift in Sources */,
 				4351DFEB213DBDBE00DB378F /* AppDelegate.swift in Sources */,
 				4351E03B213DD8EF00DB378F /* Constants.swift in Sources */,
+				4351E04421457CC900DB378F /* PlaceListController.swift in Sources */,
+				4351E0462145A15500DB378F /* PlaceCell.swift in Sources */,
+				4351E04A2148905B00DB378F /* PlaceDetailController.swift in Sources */,
+				4351E0482145E48F00DB378F /* CityListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

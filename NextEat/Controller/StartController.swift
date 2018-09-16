@@ -23,5 +23,11 @@ class StartController: UIViewController {
         Yelper.sharedInstance().searchByPhrase(AnyObject.self as AnyObject, text: searchText)
     }
     
+    @IBAction func presentList(_ sender: Any) {
+        let navController = storyboard?.instantiateViewController(withIdentifier: "navController") as! UINavigationController
+        let nextController = storyboard?.instantiateViewController(withIdentifier: "PlaceListController") as! UIViewController
+        
+        performSegue(withIdentifier: "showList", sender: self)
+    }
 }
 
