@@ -148,28 +148,6 @@ class Yelper: NSObject {
     }
     
 
-/* @IBAction func searchByLatLon(_ sender: AnyObject)
-{
-    
-    
-   
-    {
-        photoTitleLabel.text = "Searching..."
-        // TODO: Set necessary parameters!
-        let methodParameters = [
-            Constants.YelpParameterKeys.APIKey: Constants.YelpParameterValues.APIKey,
-            Constants.YelpParameterKeys.SafeSearch: Constants.YelpParameterValues.UseSafeSearch,
-            Constants.YelpParameterKeys.Extras: Constants.YelpParameterValues.MediumURL,
-            Constants.YelpParameterKeys.Format: Constants.YelpParameterValues.ResponseFormat,
-            Constants.YelpParameterKeys.NoJSONCallback: Constants.YelpParameterValues.DisableJSONCallback
-        ]
-        displayImageFromYelpBySearch(methodParameters as [String:AnyObject])
-    }
-    else {
-        photoTitleLabel.text = "Lat should be [-90, 90].\nLon should be [-180, 180]."
-    }
-}
-*/
     class func sharedInstance() -> Yelper
     {
         struct Singleton

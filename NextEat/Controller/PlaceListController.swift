@@ -22,7 +22,7 @@ class PlaceListController: UITableViewController
     override func viewDidLoad() {
         super .viewDidLoad()
         placeTable.delegate = self
-        placeArray = Yelper.sharedInstance().placeArray.sorted(by: {$0.name > $1.name})
+        placeArray = Yelper.sharedInstance().placeArray.sorted(by: {$0.name < $1.name})
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -37,9 +37,29 @@ class PlaceListController: UITableViewController
         let aPlace = placeArray[(indexPath.row)]
         let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath) as! PlaceCell
         
-        // Configure cell
-        cell.placeName?.text = aPlace.name
         
+        // Configure cell
+        
+        cell.backgroundColor = UIColor.lightGray
+        cell.activityView.startAnimating()
+        
+        let url = URL(string: aPlace.image)
+        let data = try? Data(contentsOf: url!)
+        
+        
+        if let imageData = data {
+            
+            print(imageData)
+            let image = UIImage(data: imageData, scale: 0.7)
+    
+            cell.placeImage?.contentMode = .scaleAspectFit
+            cell.placeImage?.clipsToBounds = true
+            cell.placeImage?.image = image!
+            cell.activityView.stopAnimating()
+            cell.backgroundColor = UIColor.clear
+    
+        }
+        cell.placeName?.text = aPlace.name
         return cell
     }
 

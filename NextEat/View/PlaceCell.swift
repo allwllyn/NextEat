@@ -17,8 +17,9 @@ class PlaceCell: UITableViewCell
     
     @IBOutlet weak var placeName: UILabel?
     
-    @IBOutlet weak var placeCity: UILabel?
     
+    
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
     
     
     
