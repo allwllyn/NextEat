@@ -42,7 +42,7 @@ class Yelper: NSObject {
             // TODO: Set necessary parameters!
             let methodParameters =
             [
-                Constants.YelpParameterKeys.Location: "\(text.text!) + food",
+                Constants.YelpParameterKeys.Location: text.text!,
                 Constants.YelpParameterKeys.SortBy: Constants.YelpParameterValues.Sorter,
                 Constants.YelpParameterKeys.Limit: Constants.YelpParameterValues.LimitAmount, Constants.YelpParameterKeys.Category: Constants.YelpParameterValues.Category
             ]

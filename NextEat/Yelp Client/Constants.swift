@@ -46,11 +46,10 @@ struct Constants {
        // static let SearchMethod = "https://api.yelp.com/v3/businesses/search"
         static let APIKey = "WWkGUJ8sJsZlpcZg01n9XKQK11VS2GTXegY34UJIuf3GTk5tjBbu_VAFTAanQ3Tbkf79BUjp14Bib9XrpWoVQParSTORPj7XbBB4zFZgosYL7ucrCBjzJGqxK7yNW3Yx"
         static let ResponseFormat = "json"
-        static let LimitAmount = "10"
+        static let LimitAmount = "20"
         static let DisableJSONCallback = "1" /* 1 means "yes" */
        // static let GalleryPhotosMethod = //get something from yelp
         static let Sorter = "rating"
-        static let MediumURL = "url_m"
         static let Category = "restaurants"
     }
     
