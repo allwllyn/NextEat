@@ -38,6 +38,7 @@ struct Constants {
         static let Location = "location"
         static let BoundingBox = "bbox"
         static let Page = "page"
+        static let Category = "categories"
     }
     
     // MARK: Yelp Parameter Values
@@ -50,6 +51,7 @@ struct Constants {
        // static let GalleryPhotosMethod = //get something from yelp
         static let Sorter = "rating"
         static let MediumURL = "url_m"
+        static let Category = "restaurants"
     }
     
     // MARK: Yelp Response Keys
