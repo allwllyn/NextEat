@@ -10,7 +10,7 @@ import Foundation
 
 
 
-struct Place {
+struct Restaurant {
     
     var name: String
     var city: String

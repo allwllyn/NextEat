@@ -12,10 +12,14 @@ class StartController: UIViewController {
 
     @IBOutlet weak var searchText: UITextField!
     
+    @IBOutlet weak var icon: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        icon.rotate360Degrees()
     }
+
 
 
 @IBAction func typeSearch(_ sender: Any) {

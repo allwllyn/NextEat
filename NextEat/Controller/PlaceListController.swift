@@ -13,7 +13,7 @@ import UIKit
 class PlaceListController: UITableViewController
 {
     
-    var placeArray = [Place]()
+    var placeArray = [Restaurant]()
     
     @IBOutlet var placeTable: UITableView!
     

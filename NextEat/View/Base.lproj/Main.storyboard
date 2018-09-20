@@ -34,7 +34,7 @@
                                         <color key="textColor" red="1" green="0.36983814826870909" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="800" verticalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="Dgn-sy-ONF">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="800" verticalCompressionResistancePriority="800" image="NextEatStartGif.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dgn-sy-ONF">
                                         <rect key="frame" x="47.5" y="68" width="240" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Dgn-sy-ONF" secondAttribute="height" multiplier="4:3" id="6yp-uL-19m"/>
@@ -89,6 +89,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="icon" destination="Dgn-sy-ONF" id="tZS-Pa-Ftf"/>
                         <outlet property="searchText" destination="beL-fZ-ayf" id="dPr-4c-3dZ"/>
                     </connections>
                 </viewController>
@@ -268,4 +269,7 @@
             <point key="canvasLocation" x="452" y="31.934032983508249"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NextEatStartGif.png" width="573" height="573"/>
+    </resources>
 </document>

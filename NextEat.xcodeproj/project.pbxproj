@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4317E2432153276F00A381F3 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317E2422153276F00A381F3 /* DataController.swift */; };
+		4317E245215343A700A381F3 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317E244215343A700A381F3 /* UIViewExt.swift */; };
+		4317E247215357BE00A381F3 /* NextEatStartGif.png in Resources */ = {isa = PBXBuildFile; fileRef = 4317E246215357BE00A381F3 /* NextEatStartGif.png */; };
 		4351DFEB213DBDBE00DB378F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351DFEA213DBDBE00DB378F /* AppDelegate.swift */; };
 		4351DFED213DBDBE00DB378F /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351DFEC213DBDBE00DB378F /* StartController.swift */; };
 		4351DFF0213DBDBE00DB378F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4351DFEE213DBDBE00DB378F /* Main.storyboard */; };
@@ -57,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4317E2422153276F00A381F3 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		4317E244215343A700A381F3 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		4317E246215357BE00A381F3 /* NextEatStartGif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NextEatStartGif.png; path = ../../../NextEatStartGif.png; sourceTree = "<group>"; };
 		4351DFE7213DBDBE00DB378F /* NextEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4351DFEA213DBDBE00DB378F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4351DFEC213DBDBE00DB378F /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
@@ -211,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				4351E03F2145713900DB378F /* Place.swift */,
+				4317E244215343A700A381F3 /* UIViewExt.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +229,7 @@
 				4351E0492148905B00DB378F /* PlaceDetailController.swift */,
 				4351E04321457CC900DB378F /* PlaceListController.swift */,
 				4351E0472145E48F00DB378F /* CityListController.swift */,
+				4317E2422153276F00A381F3 /* DataController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -230,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				4351DFEE213DBDBE00DB378F /* Main.storyboard */,
+				4317E246215357BE00A381F3 /* NextEatStartGif.png */,
 				4351E0452145A15500DB378F /* PlaceCell.swift */,
 			);
 			path = View;
@@ -342,6 +351,7 @@
 				4351E038213DD2E600DB378F /* IBMPlexMono-ThinItalic.ttf in Resources */,
 				4351E02C213DD2E600DB378F /* IBMPlexMono-BoldItalic.ttf in Resources */,
 				4351E02E213DD2E600DB378F /* IBMPlexMono-ExtraLightItalic.ttf in Resources */,
+				4317E247215357BE00A381F3 /* NextEatStartGif.png in Resources */,
 				4351E035213DD2E600DB378F /* IBMPlexMono-SemiBold.ttf in Resources */,
 				4351E032213DD2E600DB378F /* IBMPlexMono-Medium.ttf in Resources */,
 				4351E02B213DD2E600DB378F /* IBMPlexMono-Bold.ttf in Resources */,
@@ -381,11 +391,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4317E245215343A700A381F3 /* UIViewExt.swift in Sources */,
 				4351DFED213DBDBE00DB378F /* StartController.swift in Sources */,
 				4351DFF3213DBDBE00DB378F /* NextEat.xcdatamodeld in Sources */,
 				4351E03E213DD92C00DB378F /* Yelper.swift in Sources */,
 				4351E0402145713900DB378F /* Place.swift in Sources */,
 				4351DFEB213DBDBE00DB378F /* AppDelegate.swift in Sources */,
+				4317E2432153276F00A381F3 /* DataController.swift in Sources */,
 				4351E03B213DD8EF00DB378F /* Constants.swift in Sources */,
 				4351E04421457CC900DB378F /* PlaceListController.swift in Sources */,
 				4351E0462145A15500DB378F /* PlaceCell.swift in Sources */,
