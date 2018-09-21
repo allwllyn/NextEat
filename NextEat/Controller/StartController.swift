@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StartController: UIViewController {
+class StartController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var searchText: UITextField!
     
@@ -19,21 +19,25 @@ class StartController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        icon.isUserInteractionEnabled = true
         icon.image = #imageLiteral(resourceName: "NextEatStartGif.png")
         icon.rotate360Degrees()
+        tapRecognizer.delegate = self
         
     }
 
 
-    @IBAction func switchIcon(_ sender: Any)
+    @IBAction func switchIcon(_ gestureRecognizer: UITapGestureRecognizer)
     {
+        if gestureRecognizer.state == .ended
+        {
+            if icon.image == #imageLiteral(resourceName: "NextEatStartGif.png") {
+                icon.image = #imageLiteral(resourceName: "sushiCatIcon.png")
+            }
         
-        if icon.image == #imageLiteral(resourceName: "NextEatStartGif.png") {
-            icon.image = #imageLiteral(resourceName: "sushiCatIcon.png")
-        }
-        
-        else if icon.image == #imageLiteral(resourceName: "sushiCatIcon.png"){
-            icon.image = #imageLiteral(resourceName: "NextEatStartGif.png")
+            else if icon.image == #imageLiteral(resourceName: "sushiCatIcon.png"){
+                icon.image = #imageLiteral(resourceName: "NextEatStartGif.png")
+            }
         }
     }
     

@@ -68,21 +68,12 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFG-n4-y1l">
-                                <rect key="frame" x="164" y="595" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="switchIcon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e4G-N4-hac"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.79123429824878899" green="1" blue="0.88266427317955343" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZFG-n4-y1l" secondAttribute="bottom" constant="42" id="9by-8a-yGv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cGe-tR-CAh" secondAttribute="trailing" constant="20" id="OdT-rI-Q7u"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cGe-tR-CAh" secondAttribute="bottom" constant="150" id="PhU-cX-uoL"/>
                             <constraint firstItem="cGe-tR-CAh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R9B-Gp-CSJ"/>
-                            <constraint firstItem="ZFG-n4-y1l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="164" id="WRQ-Y3-jiX"/>
                             <constraint firstItem="cGe-tR-CAh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="fMh-cu-5lT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -108,7 +99,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1308" y="32"/>
+            <point key="canvasLocation" x="1308" y="31.934032983508249"/>
         </scene>
         <!--City List Controller-->
         <scene sceneID="CgB-c6-zw0">
