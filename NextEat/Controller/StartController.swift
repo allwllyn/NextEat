@@ -14,14 +14,29 @@ class StartController: UIViewController {
     
     @IBOutlet weak var icon: UIImageView!
     
+    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        icon.image = #imageLiteral(resourceName: "NextEatStartGif.png")
         icon.rotate360Degrees()
+        
     }
 
 
-
+    @IBAction func switchIcon(_ sender: Any)
+    {
+        
+        if icon.image == #imageLiteral(resourceName: "NextEatStartGif.png") {
+            icon.image = #imageLiteral(resourceName: "sushiCatIcon.png")
+        }
+        
+        else if icon.image == #imageLiteral(resourceName: "sushiCatIcon.png"){
+            icon.image = #imageLiteral(resourceName: "NextEatStartGif.png")
+        }
+    }
+    
 @IBAction func typeSearch(_ sender: Any) {
 
         Yelper.sharedInstance().searchByPhrase(AnyObject.self as AnyObject, text: searchText)

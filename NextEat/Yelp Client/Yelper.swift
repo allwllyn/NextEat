@@ -11,7 +11,7 @@ import UIKit
 
 class Yelper: NSObject {
 
-    
+    var cityArray: [Town] = []
     var placeArray: [Restaurant] = []
     
     private func yelpURLFromParameters(_ parameters: [String: AnyObject]) -> URL
