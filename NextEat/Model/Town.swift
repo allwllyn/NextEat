@@ -13,5 +13,7 @@ import Foundation
 struct Town {
     
     var name: String
+    var restaurants: [Restaurant]
+    
     
 }

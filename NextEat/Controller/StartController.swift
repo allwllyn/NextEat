@@ -16,7 +16,8 @@ class StartController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         icon.isUserInteractionEnabled = true
@@ -24,6 +25,12 @@ class StartController: UIViewController, UIGestureRecognizerDelegate {
         icon.rotate360Degrees()
         tapRecognizer.delegate = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        searchText.text = nil
     }
 
 
@@ -41,16 +48,29 @@ class StartController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-@IBAction func typeSearch(_ sender: Any) {
+    @IBAction func typeSearch(_ sender: Any)
+    {
 
         Yelper.sharedInstance().searchByPhrase(AnyObject.self as AnyObject, text: searchText)
+        {
+        success in
+            if success
+            {
+                let navController = self.storyboard?.instantiateViewController(withIdentifier: "navController") as! UINavigationController
+                let nextController = self.storyboard?.instantiateViewController(withIdentifier: "PlaceListController") as! UIViewController
+                
+                navController.pushViewController(nextController, animated: true)
+            }
+    }
+    
+    
     }
     
     @IBAction func presentList(_ sender: Any) {
         let navController = storyboard?.instantiateViewController(withIdentifier: "navController") as! UINavigationController
         let nextController = storyboard?.instantiateViewController(withIdentifier: "PlaceListController") as! UIViewController
         
-        performSegue(withIdentifier: "showList", sender: self)
+        performSegue(withIdentifier: "showCityList", sender: self)
     }
 }
 

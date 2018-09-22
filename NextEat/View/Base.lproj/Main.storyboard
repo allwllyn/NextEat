@@ -12,6 +12,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="IBMPlexMono-Bold.ttf">
+            <string>IBMPlexMono-Bold</string>
+        </array>
         <array key="IBMPlexMono-Regular.ttf">
             <string>IBMPlexMono</string>
         </array>
@@ -59,6 +62,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="typeSearch:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="zCw-fz-kkv"/>
+                                            <segue destination="m30-0i-AGe" kind="show" identifier="showList" id="A3y-dg-SCx"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnE-Au-qkZ">
@@ -82,7 +86,7 @@
                         <barButtonItem key="rightBarButtonItem" title="List" id="JJG-ar-gnP">
                             <connections>
                                 <action selector="presentList:" destination="BYZ-38-t0r" id="N96-tK-JvQ"/>
-                                <segue destination="m30-0i-AGe" kind="show" id="g2z-ye-481"/>
+                                <segue destination="f04-o6-g9o" kind="show" identifier="showCityList" id="DaO-q3-52s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -110,22 +114,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Ip9-v8-y4F" style="IBUITableViewCellStyleDefault" id="Qcm-r1-Ikb">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" textLabel="Ip9-v8-y4F" rowHeight="88" style="IBUITableViewCellStyleDefault" id="Qcm-r1-Ikb" customClass="CityCell" customModule="NextEat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qcm-r1-Ikb" id="D3T-kg-2cX">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ip9-v8-y4F">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="IBMPlexMono-Bold" family="IBM Plex Mono" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="Ip9-v8-y4F" id="2BT-AV-p7h"/>
+                                    <segue destination="m30-0i-AGe" kind="show" id="91J-6e-maq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -136,7 +144,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ye7-kz-yEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2302" y="-639"/>
+            <point key="canvasLocation" x="2118" y="-695"/>
         </scene>
         <!--Place List Controller-->
         <scene sceneID="YHO-Nz-xod">
@@ -186,6 +194,7 @@
                                     <outlet property="activityView" destination="geD-88-kVE" id="kyV-fu-cVa"/>
                                     <outlet property="placeImage" destination="wi1-lD-s1d" id="4TX-9i-5Rc"/>
                                     <outlet property="placeName" destination="5M3-6s-VYE" id="8aL-mV-57I"/>
+                                    <segue destination="1hE-I4-YjL" kind="show" id="czG-1r-bFg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -252,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bkl-AE-yZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3164" y="32"/>
+            <point key="canvasLocation" x="2892" y="32"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HxW-1X-heV">
@@ -273,4 +282,7 @@
             <point key="canvasLocation" x="452" y="31.934032983508249"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="91J-6e-maq"/>
+    </inferredMetricsTieBreakers>
 </document>

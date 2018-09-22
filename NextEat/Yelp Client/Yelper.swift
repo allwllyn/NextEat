@@ -11,8 +11,9 @@ import UIKit
 
 class Yelper: NSObject {
 
-    var cityArray: [Town] = []
+    var cityArray: [String] = []
     var placeArray: [Restaurant] = []
+    var filteredArray: [Restaurant] = []
     
     private func yelpURLFromParameters(_ parameters: [String: AnyObject]) -> URL
     {
@@ -33,7 +34,7 @@ class Yelper: NSObject {
     }
     
     
-    func searchByPhrase(_ sender: AnyObject, text: UITextField)
+    func searchByPhrase(_ sender: AnyObject, text: UITextField, _ completion: @escaping (_ success: Bool) -> Void)
     {
     
         if !text.text!.isEmpty
@@ -52,6 +53,7 @@ class Yelper: NSObject {
                 if success
                 {
                     print("succesful!")
+                    completion(true)
                 }
             }
         }
@@ -133,10 +135,19 @@ class Yelper: NSObject {
             {
                 for i in placeList
                 {
+                
                     let location = i["location"] as! [String:AnyObject]
+                    let cityName = location["city"] as! String
+                    
+                    if !self.cityArray.contains(cityName)
+                    {
+                        self.cityArray.append(cityName)
+                    }
+                    
                     let foundPlace = Restaurant(name: (i["name"] as! String), city: (location["city"] as! String), state: (location["state"] as! String), image: (i["image_url"] as! String), phone: (i["phone"] as! String), website: (i["url"] as! String))
                    self.placeArray.append(foundPlace)
                 }
+
             completion(true)
             print(self.placeArray)
             }

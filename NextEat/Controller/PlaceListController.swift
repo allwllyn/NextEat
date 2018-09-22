@@ -15,14 +15,22 @@ class PlaceListController: UITableViewController
     
     var placeArray = [Restaurant]()
     
+    let yelper = Yelper.sharedInstance()
+    
     @IBOutlet var placeTable: UITableView!
-    
-    
     
     override func viewDidLoad() {
         super .viewDidLoad()
         placeTable.delegate = self
-        placeArray = Yelper.sharedInstance().placeArray.sorted(by: {$0.name < $1.name})
+        
+        if yelper.filteredArray.count != 0
+        {
+            placeArray = yelper.filteredArray
+        }
+        else
+        {
+            placeArray = yelper.placeArray.sorted(by: {$0.name < $1.name})
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,7 +55,7 @@ class PlaceListController: UITableViewController
         let data = try? Data(contentsOf: url!)
         
         
-        if let imageData = data {
+       if let imageData = data {
             
             print(imageData)
             let image = UIImage(data: imageData, scale: 0.7)
