@@ -8,13 +8,18 @@
 
 import UIKit
 
-class StartController: UIViewController, UIGestureRecognizerDelegate {
+class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var searchText: UITextField!
     
     @IBOutlet weak var icon: UIImageView!
     
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
+    
+    
+    @IBOutlet weak var actIndicator: UIActivityIndicatorView!
+    
+    let yelper = Yelper.sharedInstance()
     
     override func viewDidLoad()
     {
@@ -24,6 +29,8 @@ class StartController: UIViewController, UIGestureRecognizerDelegate {
         icon.image = #imageLiteral(resourceName: "NextEatStartGif.png")
         icon.rotate360Degrees()
         tapRecognizer.delegate = self
+        actIndicator.isHidden = true
+        
         
     }
     
@@ -31,6 +38,9 @@ class StartController: UIViewController, UIGestureRecognizerDelegate {
         super.viewWillAppear(true)
         
         searchText.text = nil
+        yelper.filteredArray = []
+        actIndicator.isHidden = true
+        self.view.alpha = 1.0
     }
 
 
@@ -48,20 +58,17 @@ class StartController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    
     @IBAction func typeSearch(_ sender: Any)
     {
 
-        Yelper.sharedInstance().searchByPhrase(AnyObject.self as AnyObject, text: searchText)
-        {
-        success in
-            if success
-            {
-                let navController = self.storyboard?.instantiateViewController(withIdentifier: "navController") as! UINavigationController
-                let nextController = self.storyboard?.instantiateViewController(withIdentifier: "PlaceListController") as! UIViewController
-                
-                navController.pushViewController(nextController, animated: true)
-            }
-    }
+        self.view.alpha = 0.5
+        actIndicator.isHidden = false
+        actIndicator.startAnimating()
+        
+        
+        Yelper.sharedInstance().searchByPhrase(self, text: searchText)
+    
     
     
     }

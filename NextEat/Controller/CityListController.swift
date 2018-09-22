@@ -21,6 +21,7 @@ class CityListController: UITableViewController
     
     var navController = UINavigationController()
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -53,6 +54,7 @@ class CityListController: UITableViewController
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let nextController = storyboard?.instantiateViewController(withIdentifier: "PlaceListController") as! UIViewController
         
         var filteredPlaces: [Restaurant] = []
@@ -66,6 +68,7 @@ class CityListController: UITableViewController
             
             yelper.filteredArray = filteredPlaces
         }
+        
         navController.pushViewController(nextController, animated: true)        
     }
     

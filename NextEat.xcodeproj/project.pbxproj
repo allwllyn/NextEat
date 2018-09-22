@@ -245,10 +245,10 @@
 			isa = PBXGroup;
 			children = (
 				4351DFEE213DBDBE00DB378F /* Main.storyboard */,
-				4317E24A215491BA00A381F3 /* sushiCatIcon.png */,
-				4317E246215357BE00A381F3 /* NextEatStartGif.png */,
 				4351E0452145A15500DB378F /* PlaceCell.swift */,
 				4317E24C2156999D00A381F3 /* CityCell.swift */,
+				4317E24A215491BA00A381F3 /* sushiCatIcon.png */,
+				4317E246215357BE00A381F3 /* NextEatStartGif.png */,
 			);
 			path = View;
 			sourceTree = "<group>";

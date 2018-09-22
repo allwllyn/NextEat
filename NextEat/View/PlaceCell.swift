@@ -14,14 +14,9 @@ class PlaceCell: UITableViewCell
     
     @IBOutlet weak var placeImage: UIImageView?
     
-    
     @IBOutlet weak var placeName: UILabel?
     
-    
-    
-    @IBOutlet weak var activityView: UIActivityIndicatorView!
-    
-    
+    @IBOutlet weak var activityView: UIActivityIndicatorView! 
     
     
     

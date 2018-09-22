@@ -23,7 +23,7 @@
         <!--Start Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="StartController" customModule="NextEat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="startController" id="BYZ-38-t0r" customClass="StartController" customModule="NextEat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="typeSearch:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="zCw-fz-kkv"/>
-                                            <segue destination="m30-0i-AGe" kind="show" identifier="showList" id="A3y-dg-SCx"/>
+                                            <segue destination="m30-0i-AGe" kind="show" id="sVh-bK-OuU"/>
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnE-Au-qkZ">
@@ -72,25 +72,33 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YT6-Zu-DqP">
+                                <rect key="frame" x="177" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.79123429824878899" green="1" blue="0.88266427317955343" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="YT6-Zu-DqP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Hj-aC-Aar"/>
+                            <constraint firstItem="YT6-Zu-DqP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NPC-Zv-Xti"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cGe-tR-CAh" secondAttribute="trailing" constant="20" id="OdT-rI-Q7u"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cGe-tR-CAh" secondAttribute="bottom" constant="150" id="PhU-cX-uoL"/>
                             <constraint firstItem="cGe-tR-CAh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R9B-Gp-CSJ"/>
+                            <constraint firstItem="YT6-Zu-DqP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Xhl-7z-yrM"/>
                             <constraint firstItem="cGe-tR-CAh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="fMh-cu-5lT"/>
+                            <constraint firstItem="YT6-Zu-DqP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jew-ZY-5ey"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EX9-T5-5TR">
-                        <barButtonItem key="rightBarButtonItem" title="List" id="JJG-ar-gnP">
+                    <navigationItem key="navigationItem" id="yEr-hf-nuj">
+                        <barButtonItem key="rightBarButtonItem" title="List" id="1zl-9k-4q2">
                             <connections>
-                                <action selector="presentList:" destination="BYZ-38-t0r" id="N96-tK-JvQ"/>
-                                <segue destination="f04-o6-g9o" kind="show" identifier="showCityList" id="DaO-q3-52s"/>
+                                <action selector="presentList:" destination="BYZ-38-t0r" id="93U-Za-fka"/>
+                                <segue destination="f04-o6-g9o" kind="show" identifier="showCityList" id="yQq-1i-2af"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="actIndicator" destination="YT6-Zu-DqP" id="EwM-or-DtN"/>
                         <outlet property="icon" destination="Dgn-sy-ONF" id="tZS-Pa-Ftf"/>
                         <outlet property="searchText" destination="beL-fZ-ayf" id="dPr-4c-3dZ"/>
                         <outlet property="tapRecognizer" destination="Neu-Ji-Lw5" id="llU-Hw-D5M"/>
@@ -132,7 +140,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="Ip9-v8-y4F" id="2BT-AV-p7h"/>
-                                    <segue destination="m30-0i-AGe" kind="show" id="91J-6e-maq"/>
+                                    <segue destination="m30-0i-AGe" kind="show" id="hfg-dO-2o9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -141,6 +149,8 @@
                             <outlet property="delegate" destination="f04-o6-g9o" id="IwH-IY-oqF"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ye7-kz-yEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -214,7 +224,7 @@
         <!--Place Detail Controller-->
         <scene sceneID="a5P-wc-kWi">
             <objects>
-                <viewController id="1hE-I4-YjL" customClass="PlaceDetailController" customModule="NextEat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="placeDetailController" id="1hE-I4-YjL" customClass="PlaceDetailController" customModule="NextEat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t6Q-gD-0Lp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,10 +264,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXD-U3-ykm">
+                                <rect key="frame" x="139" y="494" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R0d-0x-aVU"/>
                     </view>
+                    <connections>
+                        <outlet property="location" destination="1pq-gs-wph" id="h5Q-7X-qpa"/>
+                        <outlet property="myFavoriteDish" destination="NXD-U3-ykm" id="aag-7S-gFF"/>
+                        <outlet property="name" destination="4D6-bv-c9y" id="kAe-Tx-IIS"/>
+                        <outlet property="rating" destination="oKr-fb-1sW" id="AR1-XP-dIq"/>
+                        <outlet property="website" destination="qdE-x9-xpm" id="fKR-Rc-xaO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bkl-AE-yZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -283,6 +307,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="91J-6e-maq"/>
+        <segue reference="hfg-dO-2o9"/>
     </inferredMetricsTieBreakers>
 </document>
