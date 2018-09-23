@@ -8,14 +8,17 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 
 class PlaceListController: UITableViewController
 {
     
+    var tableTimer: Timer!
     let yelper = Yelper.sharedInstance()
-    var placeArray: [Restaurant] = []
+    var placeArray: [Restaurant?] = []
     var chosenPlace: Restaurant?
+    var fetchedResultsController: NSFetchedResultsController<Place>!
     
     @IBOutlet var placeTable: UITableView!
     
@@ -32,7 +35,8 @@ class PlaceListController: UITableViewController
             placeArray = yelper.placeArray.sorted(by: {$0.name < $1.name})
         }
         
-        reloadAfterTime()
+        
+        tableTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(reloadAfterTime), userInfo: nil, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +56,12 @@ class PlaceListController: UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if placeArray.count != 0{
        return placeArray.count
+        }
+        else{
+            return 1
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -60,15 +69,11 @@ class PlaceListController: UITableViewController
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath) as! PlaceCell
         
-            cell.backgroundColor = UIColor.lightGray
-            cell.activityView.isHidden = false
-            cell.activityView.startAnimating()
-            cell.placeName?.text = nil
-
+     //   {
         if placeArray.count != 0
         {
-           let  aPlace = placeArray[(indexPath.row)]
-            // Configure cell
+          if let aPlace = placeArray[(indexPath.row)]
+          {  // Configure cell
             let url = URL(string: aPlace.image)
             let data = try? Data(contentsOf: url!)
         
@@ -84,22 +89,48 @@ class PlaceListController: UITableViewController
                     cell.backgroundColor = UIColor.clear
                     cell.placeName?.text = aPlace.name
                 }
+            }
+          else
+            {
+            cell.backgroundColor = UIColor.lightGray
+            cell.activityView.isHidden = false
+            cell.activityView.startAnimating()
+            cell.placeName?.text = nil
+            cell.isUserInteractionEnabled = false
+            }
         }
+        
+        else
+        {
+            cell.backgroundColor = UIColor.lightGray
+            cell.placeImage?.image = nil
+            cell.placeName?.text = ""
+            cell.activityView.isHidden = false
+            cell.activityView.startAnimating()
+            cell.isUserInteractionEnabled = false
+        }
+     //   }
         
         return cell
     }
     
     
-    func reloadAfterTime(delayTime: TimeInterval = 10.0)
+    @objc func reloadAfterTime(delayTime: TimeInterval = 0.7)
     {
-       self.placeArray = self.yelper.placeArray
-        print("reloading")
-        print(placeArray)
-        DispatchQueue.main.async {
+        DispatchQueue.main.async
+            {
+                if self.yelper.filteredArray.count != 0
+                {
+                    self.placeArray = self.yelper.filteredArray
+                }
+                else
+                {
+                    self.placeArray = self.yelper.placeArray.sorted(by: {$0.name < $1.name})
+                }
             self.placeTable.reloadData()
+            
         }
     }
-    
     
 
     
@@ -114,8 +145,7 @@ class PlaceListController: UITableViewController
         }
     }
     
-    
-    
+   
     
     
     
