@@ -64,6 +64,7 @@ struct Constants {
         static let MediumURL = "url_m"
         static let Pages = "pages"
         static let Total = "total"
+        static let Rating = "rating"
     }
     
     // MARK: Yelp Response Values

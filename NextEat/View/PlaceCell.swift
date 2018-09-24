@@ -19,7 +19,7 @@ class PlaceCell: UITableViewCell
     @IBOutlet weak var activityView: UIActivityIndicatorView! 
     
     
-    
+
     
     
     

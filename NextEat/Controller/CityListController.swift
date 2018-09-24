@@ -8,18 +8,19 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 
-class CityListController: UITableViewController
+class CityListController: UITableViewController, NSFetchedResultsControllerDelegate
 {
     
     var placeArray: [Restaurant] = []
     
     var cityArray: [String] = []
-    
+    var fetchedResultsController: NSFetchedResultsController<Place>!
     var yelper = Yelper.sharedInstance()
-    
-    var navController = UINavigationController()
+    var dataController: DataController!
+
     
     @IBOutlet weak var addButton: UIBarButtonItem!
     
@@ -27,9 +28,17 @@ class CityListController: UITableViewController
     override func viewDidLoad() {
         super .viewDidLoad()
         
+        if dataController != nil
+        {
+            print("dataController is present")
+        }
+        else
+        {
+            print("dataController is not here")
+        }
+        
         cityArray = yelper.cityArray
         
-        navController = self.storyboard?.instantiateViewController(withIdentifier: "navController") as! UINavigationController
         
     }
     
@@ -55,9 +64,13 @@ class CityListController: UITableViewController
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let nextController = storyboard?.instantiateViewController(withIdentifier: "PlaceListController") as! UIViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
         
-        var filteredPlaces: [Restaurant] = []
+        vc.dataController = dataController
+        vc.cityName = cityArray[indexPath.row]
+        vc.fetching = true
+        
+        /*var filteredPlaces: [Restaurant] = []
         
         for i in yelper.placeArray
         {
@@ -67,16 +80,41 @@ class CityListController: UITableViewController
             }
             
             yelper.filteredArray = filteredPlaces
-        }
+        }*/
         
-        navController.pushViewController(nextController, animated: true)        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
+    @objc fileprivate func setupFetchedResultsController()
+    {
+        let fetchRequest:NSFetchRequest<Place> = Place.fetchRequest()
+        let cityPredicate = NSPredicate(format: "%K = %@", "city", "Atlanta")
+        fetchRequest.predicate = cityPredicate
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
+    }
     
     
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PlaceListController
+        {
+            if let indexPath = tableView.indexPathForSelectedRow
+            {
+                vc.cityName = cityArray[indexPath.row]
+                vc.fetching = true
+            }
+        }
+    }
     
     
     

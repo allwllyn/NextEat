@@ -14,10 +14,24 @@ struct Restaurant {
     
     var name: String
     var city: String
-    var state: String
-    var image: String
+    var image: Data?
     var phone: String
-    var website: String
+    var rating: String
     
+    init(name: String, city: String, phone: String, rating: String)
+    {
+        self.name = name
+        self.city = city
+        self.phone = phone
+        self.rating = rating
+    }
+    
+    init(_ place: Place)
+    {
+        self.name = place.name!
+        self.city = place.city!
+        self.phone = place.phone!
+        self.rating = place.rating!
+    }
     
 }

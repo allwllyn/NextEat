@@ -14,6 +14,7 @@ class Yelper: NSObject {
     var cityArray: [String] = []
     var placeArray: [Restaurant] = []
     var filteredArray: [Restaurant] = []
+    var dataController: DataController!
 
     
     private func yelpURLFromParameters(_ parameters: [String: AnyObject]) -> URL
@@ -144,9 +145,25 @@ class Yelper: NSObject {
                     {
                         self.cityArray.append(cityName)
                     }
+                   
+                        let name = (i["name"] as! String)
+                        let city = (location["city"] as! String)
+                        let phone = (i["phone"] as! String)
+                        let rating = (i["rating"] as! Double)
                     
-                    let foundPlace = Restaurant(name: (i["name"] as! String), city: (location["city"] as! String), state: (location["state"] as! String), image: (i["image_url"] as! String), phone: (i["phone"] as! String), website: (i["url"] as! String))
-                   self.placeArray.append(foundPlace)
+                        var placeRestaurant = Restaurant(name: name, city: city, phone: phone, rating: rating.description)
+                    
+                        var binary: Data
+                            let imageURL = URL(string: i["image_url"] as! String)
+                            if let imageData = try? Data(contentsOf: imageURL!)
+                            {
+                                let image = UIImage(data: imageData)
+                                let imageBinary = UIImageJPEGRepresentation(image! , 1)
+                                binary = imageBinary!
+                                placeRestaurant.image = binary
+                            }
+                    
+                  self.placeArray.append(placeRestaurant)
                 }
                 if self.placeArray.count > 0
                 {

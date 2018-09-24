@@ -23,7 +23,7 @@ class DataController
     
     init(modelName:String)
     {
-        persistentContainer = NSPersistentContainer(name: "VirtualTourist")
+        persistentContainer = NSPersistentContainer(name: "NextEat")
     }
     
     func load(completion: (() -> Void)? = nil)

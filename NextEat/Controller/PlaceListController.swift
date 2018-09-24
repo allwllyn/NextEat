@@ -11,38 +11,59 @@ import UIKit
 import CoreData
 
 
-class PlaceListController: UITableViewController
+class PlaceListController: UITableViewController, NSFetchedResultsControllerDelegate
 {
     
     var tableTimer: Timer!
+    var fetchTimer: Timer!
     let yelper = Yelper.sharedInstance()
     var placeArray: [Restaurant?] = []
     var chosenPlace: Restaurant?
     var fetchedResultsController: NSFetchedResultsController<Place>!
+    var dataController: DataController!
+    var place: Place!
+    var searchCity: City?
+    var cityName: String?
+    var fetching: Bool = false
+
     
     @IBOutlet var placeTable: UITableView!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super .viewDidLoad()
+        
+        if dataController != nil {
+            print("dataController still here")
+        }
+        
+       else if dataController == nil
+        {
+            print("dataController has disappeared already")
+        }
+        
         placeTable.delegate = self
         
-        if yelper.filteredArray.count != 0
+        placeTable.allowsMultipleSelectionDuringEditing = false
+        
+        if fetching
         {
-            placeArray = yelper.filteredArray
+            setupFetchedResultsController()
+            // fetchTimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(setupFetchedResultsController), userInfo: nil, repeats: false)
         }
-        else
+        
+        if !fetching
         {
+            tableTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(reloadAfterTime), userInfo: nil, repeats: true)
+            
             placeArray = yelper.placeArray.sorted(by: {$0.name < $1.name})
         }
-        
-        
-        tableTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(reloadAfterTime), userInfo: nil, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if yelper.filteredArray.count != 0
+        if fetching
         {
-            placeArray = yelper.filteredArray
+           // fetchedResults soemthing
         }
         else
         {
@@ -54,100 +75,135 @@ class PlaceListController: UITableViewController
         return  1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if placeArray.count != 0{
-       return placeArray.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        if fetching
+        {
+            return fetchedResultsController.fetchedObjects?.count ?? 1
         }
         else{
-            return 1
+            if placeArray.count != 0
+            {
+                return placeArray.count
+            }
+            else
+            {
+                return 1
+            }
         }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "placeCell", for: indexPath) as! PlaceCell
         
-     //   {
-        if placeArray.count != 0
+        if fetching
         {
-          if let aPlace = placeArray[(indexPath.row)]
+            if let aPlace = fetchedResultsController.fetchedObjects?[(indexPath.row)]
           {  // Configure cell
-            let url = URL(string: aPlace.image)
-            let data = try? Data(contentsOf: url!)
-        
-                if let imageData = data
-                {
-                    print(imageData)
-                    let image = UIImage(data: imageData, scale: 0.7)
                     cell.placeImage?.contentMode = .scaleAspectFit
                     cell.placeImage?.clipsToBounds = true
-                    cell.placeImage?.image = image!
+                    cell.placeImage?.image = UIImage(data: aPlace.image!)
                     cell.activityView.isHidden = true
                     cell.activityView.stopAnimating()
                     cell.backgroundColor = UIColor.clear
                     cell.placeName?.text = aPlace.name
-                }
             }
           else
             {
-            cell.backgroundColor = UIColor.lightGray
-            cell.activityView.isHidden = false
-            cell.activityView.startAnimating()
-            cell.placeName?.text = nil
-            cell.isUserInteractionEnabled = false
+            configureNilCell(cell)
             }
         }
-        
         else
         {
-            cell.backgroundColor = UIColor.lightGray
-            cell.placeImage?.image = nil
-            cell.placeName?.text = ""
-            cell.activityView.isHidden = false
-            cell.activityView.startAnimating()
-            cell.isUserInteractionEnabled = false
+            if placeArray.count != 0
+            {
+                let aPlace = placeArray[(indexPath.row)]!
+                cell.placeImage?.contentMode = .scaleAspectFit
+                cell.placeImage?.clipsToBounds = true
+                cell.placeImage?.image = UIImage(data: aPlace.image!)
+                cell.activityView.isHidden = true
+                cell.activityView.stopAnimating()
+                cell.backgroundColor = UIColor.clear
+                cell.placeName?.text = aPlace.name
+                
+            }
+            else
+            {
+                configureNilCell(cell)
+            }
         }
-     //   }
-        
         return cell
+    }
+    
+    private func configureNilCell(_ cell: PlaceCell)
+    {
+        cell.backgroundColor = UIColor.lightGray
+        cell.activityView.isHidden = false
+        cell.activityView.startAnimating()
+        cell.placeName?.text = ""
+        cell.isUserInteractionEnabled = false
     }
     
     
     @objc func reloadAfterTime(delayTime: TimeInterval = 0.7)
     {
         DispatchQueue.main.async
-            {
-                if self.yelper.filteredArray.count != 0
-                {
-                    self.placeArray = self.yelper.filteredArray
-                }
-                else
-                {
-                    self.placeArray = self.yelper.placeArray.sorted(by: {$0.name < $1.name})
-                }
+        {
+            self.placeArray = self.yelper.placeArray.sorted(by: {$0.name < $1.name})
             self.placeTable.reloadData()
-            
         }
     }
     
-
+    @objc fileprivate func setupFetchedResultsController()
+    {
+        let fetchRequest:NSFetchRequest<Place> = Place.fetchRequest()
+        let cityPredicate = NSPredicate(format: "%K = %@", "city", "Atlanta")
+        fetchRequest.predicate = cityPredicate
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
+    }
+    
+    
+    func savePlace(_ restaurant: Restaurant)
+    {
+        let newPlace = Place(context: self.dataController.viewContext)
+        newPlace.name = restaurant.name
+        newPlace.city = restaurant.city
+        newPlace.image = restaurant.image
+        newPlace.phone = restaurant.phone
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if let vc = segue.destination as? PlaceDetailController
-        {
-            if let indexPath = tableView.indexPathForSelectedRow
-            {
+        let vc = segue.destination as! PlaceDetailController
+
+        vc.dataController = dataController
+            
+        let indexPath = tableView.indexPathForSelectedRow!
+        
+                if fetching
+                {
+                    vc.chosenPlace = Restaurant((fetchedResultsController.fetchedObjects?[(indexPath.row)])!)
+                    vc.place = fetchedResultsController.fetchedObjects?[(indexPath.row)]
+                }
+                else
+                {
                 vc.chosenPlace = placeArray[(indexPath.row)]
-            }
-        }
+                }
     }
     
    
-    
-    
     
     
 }

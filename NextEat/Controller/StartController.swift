@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 
-class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
+class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigationControllerDelegate, NSFetchedResultsControllerDelegate
+{
 
     @IBOutlet weak var searchText: UITextField!
     
@@ -17,34 +18,52 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
     
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     
-    
     @IBOutlet weak var actIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var listButton: UIBarButtonItem!
+    
+    var startDataController: DataController!
     
     let yelper = Yelper.sharedInstance()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         icon.isUserInteractionEnabled = true
         icon.image = #imageLiteral(resourceName: "NextEatStartGif.png")
         icon.rotate360Degrees()
         tapRecognizer.delegate = self
         actIndicator.isHidden = true
         
+        if startDataController == nil
+        {
+            print("the startController does not have a dataController")
+        }
+        else if startDataController != nil {
+            print("there appears to be a dataController")
+        }
         
+        //let vc = storyboard?.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
+        //vc.dataController = startDataController
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         super.viewWillAppear(true)
-        
         searchText.text = nil
         yelper.filteredArray = []
         actIndicator.isHidden = true
         self.view.alpha = 1.0
+        
+        if startDataController != nil{
+            print("dataController still here after navigating back")
+        }
+        else{
+            print("dataController is gone")
+        }
     }
-
-
+    
     @IBAction func switchIcon(_ gestureRecognizer: UITapGestureRecognizer)
     {
         if gestureRecognizer.state == .ended
@@ -59,26 +78,35 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         }
     }
     
-    
     @IBAction func typeSearch(_ sender: Any)
     {
-
         self.view.alpha = 0.5
         actIndicator.isHidden = false
         actIndicator.startAnimating()
         
-        
         Yelper.sharedInstance().searchByPhrase(self, text: searchText)
-    
-    
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
+        
+        vc.fetching = false
+        
+        vc.dataController = startDataController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     
     }
     
     @IBAction func presentList(_ sender: Any) {
-        let navController = storyboard?.instantiateViewController(withIdentifier: "navController") as! UINavigationController
-        let nextController = storyboard?.instantiateViewController(withIdentifier: "PlaceListController") as! UIViewController
         
-        performSegue(withIdentifier: "showCityList", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "cityController") as! CityListController
+        
+        vc.dataController = startDataController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
 }
 
