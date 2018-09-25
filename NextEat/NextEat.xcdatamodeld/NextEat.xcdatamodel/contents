@@ -8,12 +8,13 @@
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="places" inverseEntity="City" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Place" positionX="-3692" positionY="-148" width="128" height="133"/>
-        <element name="City" positionX="-3863" positionY="-117" width="128" height="73"/>
+        <element name="Place" positionX="-3933" positionY="-148" width="128" height="148"/>
+        <element name="City" positionX="-4113" positionY="-135" width="128" height="73"/>
     </elements>
 </model>

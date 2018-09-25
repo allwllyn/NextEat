@@ -16,7 +16,7 @@ class CityListController: UITableViewController, NSFetchedResultsControllerDeleg
     
     var placeArray: [Restaurant] = []
     
-    var cityArray: [String] = []
+    //var cityArray: [String] = []
     var fetchedResultsController: NSFetchedResultsController<City>!
     var citiesFetched: Bool = false
     var yelper = Yelper.sharedInstance()
@@ -31,7 +31,7 @@ class CityListController: UITableViewController, NSFetchedResultsControllerDeleg
         
        setupFetchedResultsController()
         
-        cityArray = yelper.cityArray
+        //cityArray = yelper.cityArray
         
         
     }
@@ -68,8 +68,6 @@ class CityListController: UITableViewController, NSFetchedResultsControllerDeleg
     @objc fileprivate func setupFetchedResultsController()
     {
         let fetchRequest:NSFetchRequest<City> = City.fetchRequest()
-        //let cityPredicate = NSPredicate(format: "%K = %@", "name", "Atlanta")
-        //fetchRequest.predicate = cityPredicate
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -79,7 +77,7 @@ class CityListController: UITableViewController, NSFetchedResultsControllerDeleg
         do
         {
             try fetchedResultsController.performFetch()
-            do
+            /*do
             {
                 var count = try dataController.viewContext.fetch(fetchRequest).count
                 if count == 0
@@ -94,7 +92,7 @@ class CityListController: UITableViewController, NSFetchedResultsControllerDeleg
             catch
             {
                 print("counld not count fetch")
-            }
+            }*/
         }
         catch
         {
@@ -103,16 +101,6 @@ class CityListController: UITableViewController, NSFetchedResultsControllerDeleg
     }
     
     
-   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? PlaceListController
-        {
-            if let indexPath = tableView.indexPathForSelectedRow
-            {
-                vc.cityName = fetchedResultsController.fetchedObjects?[(indexPath.row)].name
-                vc.fetching = true
-            }
-        }
-    }*/
     
     
     

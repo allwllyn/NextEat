@@ -174,19 +174,6 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
     }
     
     
-    func savePlace(_ restaurant: Restaurant)
-    {
-        let newPlace = Place(context: self.dataController.viewContext)
-        newPlace.name = restaurant.name
-        newPlace.city = restaurant.city
-        newPlace.image = restaurant.image
-        newPlace.phone = restaurant.phone
-        
-        if !yelper.cityArray.contains(restaurant.name)
-        {
-            yelper.cityArray.append(restaurant.name)
-        }
-    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -201,10 +188,12 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
                 {
                     vc.chosenPlace = Restaurant((fetchedResultsController.fetchedObjects?[(indexPath.row)])!)
                     vc.place = fetchedResultsController.fetchedObjects?[(indexPath.row)]
+                    vc.favorited = true
                 }
                 else
                 {
-                vc.chosenPlace = placeArray[(indexPath.row)]
+                    vc.chosenPlace = placeArray[(indexPath.row)]
+                    vc.favorited = false
                 }
     }
     

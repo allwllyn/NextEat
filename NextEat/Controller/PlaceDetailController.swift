@@ -17,6 +17,8 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
     
     var place: Place?
     
+    var favorited: Bool = false
+    
     var currentCity: City?
     
     var citiesFetched: Bool = false
@@ -46,6 +48,18 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
         super .viewDidLoad()
         
         setDetails()
+        
+        if favorited
+        {
+            addButton.isHidden = true
+            addButton.isUserInteractionEnabled = false
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(true)
+        cityExists = false
+        setupFetchedResultsController()
     }
     
     func setDetails()
@@ -64,7 +78,7 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
             newPlace.image = restaurant.image
             newPlace.phone = restaurant.phone
             newPlace.rating = restaurant.rating
-        if cityExists == false
+        if !cityExists
         {
             let newCity = City(context: self.dataController.viewContext)
             newCity.name = restaurant.city
@@ -88,6 +102,10 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
         checkCities()
         
         saveChosenPlace(chosenPlace!)
+        
+        addButton.isUserInteractionEnabled = false
+        
+        addButton.alpha = 0.2
     }
     
     func checkCities()
@@ -102,16 +120,7 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
                     currentCity = i
                     break
                 }
-                else
-                {
-                    cityExists = false
-                    continue
-                }
             }
-        }
-        else
-        {
-            cityExists = false
         }
     }
     
@@ -119,8 +128,8 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
     @objc fileprivate func setupFetchedResultsController()
     {
         let fetchRequest:NSFetchRequest<City> = City.fetchRequest()
-        let cityPredicate = NSPredicate(format: "%K = %@", "name", "\(chosenPlace!.city)")
-        fetchRequest.predicate = cityPredicate
+        //let cityPredicate = NSPredicate(format: "%K = %@", "name", "\(chosenPlace!.city)")
+        //fetchRequest.predicate = cityPredicate
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
