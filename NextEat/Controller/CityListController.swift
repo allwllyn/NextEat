@@ -17,7 +17,8 @@ class CityListController: UITableViewController, NSFetchedResultsControllerDeleg
     var placeArray: [Restaurant] = []
     
     var cityArray: [String] = []
-    var fetchedResultsController: NSFetchedResultsController<Place>!
+    var fetchedResultsController: NSFetchedResultsController<City>!
+    var citiesFetched: Bool = false
     var yelper = Yelper.sharedInstance()
     var dataController: DataController!
 
@@ -28,14 +29,7 @@ class CityListController: UITableViewController, NSFetchedResultsControllerDeleg
     override func viewDidLoad() {
         super .viewDidLoad()
         
-        if dataController != nil
-        {
-            print("dataController is present")
-        }
-        else
-        {
-            print("dataController is not here")
-        }
+       setupFetchedResultsController()
         
         cityArray = yelper.cityArray
         
@@ -46,75 +40,79 @@ class CityListController: UITableViewController, NSFetchedResultsControllerDeleg
         return  1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cityArray.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return fetchedResultsController.fetchedObjects!.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let aCity = cityArray[(indexPath.row)]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath) as! CityCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         
-        
-        // Configure cell
-        cell.backgroundColor = UIColor.lightGray
-        
-        cell.nameLabel?.text = aCity
-        return cell
+            let aCity = fetchedResultsController.fetchedObjects![(indexPath.row)]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath) as! CityCell
+            cell.backgroundColor = UIColor.lightGray
+            cell.nameLabel?.text = aCity.name
+            return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         let vc = storyboard?.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
-        
         vc.dataController = dataController
-        vc.cityName = cityArray[indexPath.row]
+        vc.cityName = fetchedResultsController.fetchedObjects![(indexPath.row)].name
         vc.fetching = true
-        
-        /*var filteredPlaces: [Restaurant] = []
-        
-        for i in yelper.placeArray
-        {
-            if i.city == cityArray[(indexPath.row)]
-            {
-                filteredPlaces.append(i)
-            }
-            
-            yelper.filteredArray = filteredPlaces
-        }*/
-        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
     @objc fileprivate func setupFetchedResultsController()
     {
-        let fetchRequest:NSFetchRequest<Place> = Place.fetchRequest()
-        let cityPredicate = NSPredicate(format: "%K = %@", "city", "Atlanta")
-        fetchRequest.predicate = cityPredicate
+        let fetchRequest:NSFetchRequest<City> = City.fetchRequest()
+        //let cityPredicate = NSPredicate(format: "%K = %@", "name", "Atlanta")
+        //fetchRequest.predicate = cityPredicate
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         
-        do {
+        do
+        {
             try fetchedResultsController.performFetch()
-        } catch {
+            do
+            {
+                var count = try dataController.viewContext.fetch(fetchRequest).count
+                if count == 0
+                {
+                    citiesFetched = false
+                }
+                else
+                {
+                    citiesFetched = true
+                }
+            }
+            catch
+            {
+                print("counld not count fetch")
+            }
+        }
+        catch
+        {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PlaceListController
         {
             if let indexPath = tableView.indexPathForSelectedRow
             {
-                vc.cityName = cityArray[indexPath.row]
+                vc.cityName = fetchedResultsController.fetchedObjects?[(indexPath.row)].name
                 vc.fetching = true
             }
         }
-    }
+    }*/
     
     
     

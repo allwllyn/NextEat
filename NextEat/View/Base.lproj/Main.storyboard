@@ -300,111 +300,115 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pq-gs-wph">
-                                <rect key="frame" x="92" y="171.5" width="191" height="20.5"/>
-                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdE-x9-xpm">
-                                <rect key="frame" x="92" y="226" width="191" height="20.5"/>
-                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKr-fb-1sW">
-                                <rect key="frame" x="92" y="279.5" width="191" height="20.5"/>
-                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="4D6-bv-c9y">
-                                <rect key="frame" x="8" y="95" width="359" height="48.5"/>
-                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="37"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXD-U3-ykm">
-                                <rect key="frame" x="106" y="379.5" width="244" height="39.5"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="City:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jf-tL-rso">
-                                <rect key="frame" x="16" y="169.5" width="52" height="22.5"/>
-                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Stars:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ON-DY-rtZ">
-                                <rect key="frame" x="16" y="225" width="62" height="22.5"/>
-                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pN-T8-2xv">
-                                <rect key="frame" x="16" y="278.5" width="62" height="22.5"/>
-                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My dish:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVv-kw-Udw">
-                                <rect key="frame" x="16" y="388.5" width="82" height="22.5"/>
-                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktY-No-zHO">
-                                <rect key="frame" x="162" y="427" width="50" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="IBMPlexMono-Bold" family="IBM Plex Mono" pointSize="83"/>
-                                <state key="normal" title="+"/>
-                                <connections>
-                                    <action selector="savePlace:" destination="1hE-I4-YjL" eventType="touchUpInside" id="tIV-96-6cX"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1yQ-PB-yfD">
+                                <rect key="frame" x="20" y="74" width="335" height="413"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="4D6-bv-c9y">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="48.5"/>
+                                        <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="37"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONF-93-yRE">
+                                        <rect key="frame" x="0.0" y="78.5" width="103" height="22.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jf-tL-rso">
+                                                <rect key="frame" x="0.0" y="0.0" width="51.5" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a85-y3-KeJ">
+                                                <rect key="frame" x="51.5" y="0.0" width="51.5" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="f80-5a-iAd">
+                                        <rect key="frame" x="0.0" y="130.5" width="113" height="22.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ON-DY-rtZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5df-dr-Rhn">
+                                                <rect key="frame" x="61.5" y="0.0" width="51.5" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="OdH-Mp-n38">
+                                        <rect key="frame" x="0.0" y="183" width="113" height="22.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pN-T8-2xv">
+                                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTz-cS-Iw4">
+                                                <rect key="frame" x="61.5" y="0.0" width="51.5" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="5TT-uZ-PJX">
+                                        <rect key="frame" x="0.0" y="235" width="325" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My dish:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVv-kw-Udw">
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXD-U3-ykm">
+                                                <rect key="frame" x="83" y="0.0" width="242" height="28"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktY-No-zHO">
+                                        <rect key="frame" x="0.0" y="293" width="335" height="120"/>
+                                        <fontDescription key="fontDescription" name="IBMPlexMono-Bold" family="IBM Plex Mono" pointSize="83"/>
+                                        <state key="normal" title="+"/>
+                                        <connections>
+                                            <action selector="savePlace:" destination="1hE-I4-YjL" eventType="touchUpInside" id="tIV-96-6cX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ktY-No-zHO" firstAttribute="centerX" secondItem="1yQ-PB-yfD" secondAttribute="centerX" id="QrC-1p-U8L"/>
+                                    <constraint firstAttribute="trailing" secondItem="5TT-uZ-PJX" secondAttribute="trailing" constant="10" id="rXi-wM-STF"/>
+                                    <constraint firstItem="4D6-bv-c9y" firstAttribute="centerX" secondItem="1yQ-PB-yfD" secondAttribute="centerX" id="s7b-J3-cAO"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.79123429820000002" green="1" blue="0.88266427319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NXD-U3-ykm" firstAttribute="top" secondItem="oKr-fb-1sW" secondAttribute="bottom" constant="47" id="4YM-36-fgj"/>
-                            <constraint firstItem="4D6-bv-c9y" firstAttribute="centerX" secondItem="t6Q-gD-0Lp" secondAttribute="centerX" id="4sr-kM-yxz"/>
-                            <constraint firstItem="NXD-U3-ykm" firstAttribute="leading" secondItem="IVv-kw-Udw" secondAttribute="trailing" constant="8" symbolic="YES" id="5Mg-tY-v6I"/>
-                            <constraint firstItem="R0d-0x-aVU" firstAttribute="bottom" secondItem="IVv-kw-Udw" secondAttribute="bottom" constant="256" id="6Bg-qD-vVC"/>
-                            <constraint firstItem="4D6-bv-c9y" firstAttribute="leading" secondItem="R0d-0x-aVU" secondAttribute="leading" constant="8" id="6wA-aE-fPt"/>
-                            <constraint firstItem="IVv-kw-Udw" firstAttribute="leading" secondItem="9pN-T8-2xv" secondAttribute="leading" id="7L6-hO-io1"/>
-                            <constraint firstItem="0ON-DY-rtZ" firstAttribute="top" secondItem="7Jf-tL-rso" secondAttribute="bottom" constant="33" id="BZo-XA-inp"/>
-                            <constraint firstItem="R0d-0x-aVU" firstAttribute="trailing" secondItem="1pq-gs-wph" secondAttribute="trailing" constant="92" id="FWr-kb-R2D"/>
-                            <constraint firstItem="9pN-T8-2xv" firstAttribute="top" secondItem="0ON-DY-rtZ" secondAttribute="bottom" constant="31" id="H36-n0-Ma2"/>
-                            <constraint firstItem="R0d-0x-aVU" firstAttribute="trailing" secondItem="4D6-bv-c9y" secondAttribute="trailing" constant="8" id="KzD-sV-FI3"/>
-                            <constraint firstItem="oKr-fb-1sW" firstAttribute="centerY" secondItem="9pN-T8-2xv" secondAttribute="centerY" id="PvK-Za-79V"/>
-                            <constraint firstItem="IVv-kw-Udw" firstAttribute="leading" secondItem="7Jf-tL-rso" secondAttribute="leading" id="QX7-e1-AVS"/>
-                            <constraint firstItem="R0d-0x-aVU" firstAttribute="trailing" secondItem="NXD-U3-ykm" secondAttribute="trailing" constant="25" id="Sez-lr-FnF"/>
-                            <constraint firstItem="1pq-gs-wph" firstAttribute="trailing" secondItem="qdE-x9-xpm" secondAttribute="trailing" id="UaM-ZJ-xFc"/>
-                            <constraint firstItem="qdE-x9-xpm" firstAttribute="leading" secondItem="oKr-fb-1sW" secondAttribute="leading" id="VJX-7s-NQN"/>
-                            <constraint firstItem="1pq-gs-wph" firstAttribute="leading" secondItem="qdE-x9-xpm" secondAttribute="leading" id="Wg7-BK-PRo"/>
-                            <constraint firstItem="0ON-DY-rtZ" firstAttribute="centerY" secondItem="qdE-x9-xpm" secondAttribute="centerY" id="XHe-WO-h5l"/>
-                            <constraint firstItem="qdE-x9-xpm" firstAttribute="trailing" secondItem="oKr-fb-1sW" secondAttribute="trailing" id="coe-jv-O1D"/>
-                            <constraint firstItem="qdE-x9-xpm" firstAttribute="top" secondItem="1pq-gs-wph" secondAttribute="bottom" constant="34" id="eEF-Jm-cYm"/>
-                            <constraint firstItem="oKr-fb-1sW" firstAttribute="top" secondItem="qdE-x9-xpm" secondAttribute="bottom" constant="33" id="eWg-rz-9ar"/>
-                            <constraint firstItem="IVv-kw-Udw" firstAttribute="leading" secondItem="0ON-DY-rtZ" secondAttribute="leading" id="faj-f0-4ru"/>
-                            <constraint firstItem="7Jf-tL-rso" firstAttribute="top" secondItem="4D6-bv-c9y" secondAttribute="bottom" constant="56" id="gR8-FM-Isz"/>
-                            <constraint firstItem="7Jf-tL-rso" firstAttribute="baseline" secondItem="1pq-gs-wph" secondAttribute="baseline" id="hby-Yj-6aB"/>
-                            <constraint firstItem="1pq-gs-wph" firstAttribute="top" secondItem="4D6-bv-c9y" secondAttribute="bottom" constant="58" id="iah-Lj-ZjB"/>
-                            <constraint firstItem="IVv-kw-Udw" firstAttribute="top" secondItem="9pN-T8-2xv" secondAttribute="bottom" constant="55" id="mDM-PN-Ana"/>
-                            <constraint firstItem="4D6-bv-c9y" firstAttribute="top" secondItem="R0d-0x-aVU" secondAttribute="top" constant="31" id="rTT-Jd-Esa"/>
-                            <constraint firstItem="IVv-kw-Udw" firstAttribute="centerY" secondItem="NXD-U3-ykm" secondAttribute="centerY" id="rsw-bf-Pfi"/>
-                            <constraint firstItem="IVv-kw-Udw" firstAttribute="leading" secondItem="t6Q-gD-0Lp" secondAttribute="leadingMargin" id="vZ0-MR-Mgw"/>
-                            <constraint firstItem="1pq-gs-wph" firstAttribute="centerX" secondItem="4D6-bv-c9y" secondAttribute="centerX" id="wrc-mQ-ymz"/>
+                            <constraint firstItem="R0d-0x-aVU" firstAttribute="bottom" secondItem="1yQ-PB-yfD" secondAttribute="bottom" constant="180" id="66r-6X-ej5"/>
+                            <constraint firstItem="1yQ-PB-yfD" firstAttribute="top" secondItem="R0d-0x-aVU" secondAttribute="top" constant="10" id="JgQ-le-hdn"/>
+                            <constraint firstItem="R0d-0x-aVU" firstAttribute="trailing" secondItem="1yQ-PB-yfD" secondAttribute="trailing" constant="20" id="Y0w-ME-Efy"/>
+                            <constraint firstItem="1yQ-PB-yfD" firstAttribute="leading" secondItem="R0d-0x-aVU" secondAttribute="leading" constant="20" id="nef-rq-XC2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R0d-0x-aVU"/>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="ktY-No-zHO" id="IDq-KI-OoS"/>
-                        <outlet property="location" destination="1pq-gs-wph" id="h5Q-7X-qpa"/>
+                        <outlet property="location" destination="a85-y3-KeJ" id="wJX-j1-dnH"/>
                         <outlet property="myFavoriteDish" destination="NXD-U3-ykm" id="aag-7S-gFF"/>
                         <outlet property="name" destination="4D6-bv-c9y" id="kAe-Tx-IIS"/>
-                        <outlet property="phone" destination="oKr-fb-1sW" id="V0y-bS-1Gy"/>
-                        <outlet property="rating" destination="qdE-x9-xpm" id="QoN-Bm-xul"/>
+                        <outlet property="phone" destination="GTz-cS-Iw4" id="VT3-cL-Sle"/>
+                        <outlet property="rating" destination="5df-dr-Rhn" id="Bdu-6m-fpd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bkl-AE-yZu" userLabel="First Responder" sceneMemberID="firstResponder"/>

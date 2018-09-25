@@ -139,12 +139,12 @@ class Yelper: NSObject {
                 {
                 
                     let location = i["location"] as! [String:AnyObject]
-                    let cityName = location["city"] as! String
+                  //  let cityName = location["city"] as! String
                     
-                    if !self.cityArray.contains(cityName)
-                    {
-                        self.cityArray.append(cityName)
-                    }
+                    //if !self.cityArray.contains(cityName)
+                    //{
+                     //   self.cityArray.append(cityName)
+                    //}
                    
                         let name = (i["name"] as! String)
                         let city = (location["city"] as! String)

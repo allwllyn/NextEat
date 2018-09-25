@@ -158,7 +158,7 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
     @objc fileprivate func setupFetchedResultsController()
     {
         let fetchRequest:NSFetchRequest<Place> = Place.fetchRequest()
-        let cityPredicate = NSPredicate(format: "%K = %@", "city", "Atlanta")
+        let cityPredicate = NSPredicate(format: "%K = %@", "city", "\(cityName!)")
         fetchRequest.predicate = cityPredicate
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -181,6 +181,11 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
         newPlace.city = restaurant.city
         newPlace.image = restaurant.image
         newPlace.phone = restaurant.phone
+        
+        if !yelper.cityArray.contains(restaurant.name)
+        {
+            yelper.cityArray.append(restaurant.name)
+        }
     }
     
     
