@@ -29,6 +29,7 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var myFavoriteDish: UITextField!
+    @IBOutlet weak var dishLabel: UILabel!
     
     override func viewDidLoad()
     {
@@ -38,6 +39,16 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
         {
             addButton.isHidden = true
             addButton.isUserInteractionEnabled = false
+            
+            if myFavoriteDish.text == "What did you like here?"
+            {
+            myFavoriteDish.clearsOnBeginEditing = true
+            myFavoriteDish.alpha = 0.3
+            }
+            else
+            {
+                myFavoriteDish.alpha = 1.0
+            }
         }
     }
     
@@ -54,6 +65,18 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
         location.text = chosenPlace?.city
         phone.text = chosenPlace?.phone
         rating.text = chosenPlace?.rating.description
+        
+        if favorited
+        {
+            myFavoriteDish.isHidden = false
+            myFavoriteDish.text = place?.note ?? "What did you like here?"
+            dishLabel.isHidden = false
+        }
+        else
+        {
+            myFavoriteDish.isHidden = true
+            dishLabel.isHidden = true
+        }
     }
     
     func saveChosenPlace(_ restaurant: Restaurant)
@@ -106,6 +129,17 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
         }
     }
     
+    @IBAction func typeMyDish(_ sender: Any) {
+        place?.note = myFavoriteDish.text
+        do
+        {
+            try dataController.viewContext.save()
+        }
+        catch
+        {
+            print("unable to save")
+        }
+    }
     
     @objc fileprivate func setupFetchedResultsController()
     {

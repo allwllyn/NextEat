@@ -13,17 +13,12 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
 {
 
     @IBOutlet weak var searchText: UITextField!
-    
     @IBOutlet weak var icon: UIImageView!
-    
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
-    
     @IBOutlet weak var actIndicator: UIActivityIndicatorView!
-    
     @IBOutlet weak var listButton: UIBarButtonItem!
-    
+    var fetchedResultsController: NSFetchedResultsController<Place>!
     var startDataController: DataController!
-    
     let yelper = Yelper.sharedInstance()
     
     override func viewDidLoad()
@@ -36,16 +31,7 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         tapRecognizer.delegate = self
         actIndicator.isHidden = true
         
-        if startDataController == nil
-        {
-            print("the startController does not have a dataController")
-        }
-        else if startDataController != nil {
-            print("there appears to be a dataController")
-        }
-        
-        //let vc = storyboard?.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
-        //vc.dataController = startDataController
+        setupFetchedResultsController()
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -56,23 +42,20 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         actIndicator.isHidden = true
         self.view.alpha = 1.0
         
-        if startDataController != nil{
-            print("dataController still here after navigating back")
-        }
-        else{
-            print("dataController is gone")
-        }
+       setupFetchedResultsController()
     }
     
     @IBAction func switchIcon(_ gestureRecognizer: UITapGestureRecognizer)
     {
         if gestureRecognizer.state == .ended
         {
-            if icon.image == #imageLiteral(resourceName: "NextEatStartGif.png") {
+            if icon.image == #imageLiteral(resourceName: "NextEatStartGif.png")
+            {
                 icon.image = #imageLiteral(resourceName: "sushiCatIcon.png")
             }
         
-            else if icon.image == #imageLiteral(resourceName: "sushiCatIcon.png"){
+            else if icon.image == #imageLiteral(resourceName: "sushiCatIcon.png")
+            {
                 icon.image = #imageLiteral(resourceName: "NextEatStartGif.png")
             }
         }
@@ -88,17 +71,53 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
-        
+
         vc.fetching = false
-        
         vc.dataController = startDataController
         
         self.navigationController?.pushViewController(vc, animated: true)
-    
     }
     
-    @IBAction func presentList(_ sender: Any) {
+    @objc fileprivate func setupFetchedResultsController()
+    {
+        let fetchRequest:NSFetchRequest<Place> = Place.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: startDataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do
+        {
+            try fetchedResultsController.performFetch()
+            do
+            {
+                var count = try startDataController.viewContext.fetch(fetchRequest).count
+                if count == 0{
+                    listButton.isEnabled = false
+                }
+                else if count > 0
+                {
+                    listButton.isEnabled = true
+                }
+                else
+                {
+                    listButton.isEnabled = false
+                }
+            }
+            catch
+            {
+                print("couldn't perform fetch")
+            }
+        }
+        catch
+        {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
+    }
+    
+    @IBAction func presentList(_ sender: Any)
+    {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "cityController") as! CityListController
         
@@ -107,6 +126,4 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
 }
-

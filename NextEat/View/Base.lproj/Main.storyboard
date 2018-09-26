@@ -374,6 +374,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="typeMyDish:" destination="1hE-I4-YjL" eventType="editingDidEnd" id="7Wc-9L-WYk"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -404,6 +407,7 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="ktY-No-zHO" id="IDq-KI-OoS"/>
+                        <outlet property="dishLabel" destination="IVv-kw-Udw" id="IiM-0D-3D9"/>
                         <outlet property="location" destination="a85-y3-KeJ" id="wJX-j1-dnH"/>
                         <outlet property="myFavoriteDish" destination="NXD-U3-ykm" id="aag-7S-gFF"/>
                         <outlet property="name" destination="4D6-bv-c9y" id="kAe-Tx-IIS"/>
