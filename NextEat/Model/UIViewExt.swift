@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+// This animation function was adapted from this stackoverflow.com post: https://stackoverflow.com/questions/28964346/swift-continuous-rotation-animation-not-so-continuous
+// animation artwork is original content
 
 extension UIView {
     func rotate360Degrees(duration: CFTimeInterval = 5) {
