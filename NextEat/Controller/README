@@ -1,0 +1,10 @@
+
+
+
+This app is for creating lists of restaurants you would like to try, or have tried. It uses the Yelp API to for gathering restaurant information.
+
+Restaurants can be saved and notes can written, and saved, about the stored restaurant.
+
+There will be some method added for sharing lists, or specific restaurants.
+
+Notes are not implemented yet, sharing not implemented yet.

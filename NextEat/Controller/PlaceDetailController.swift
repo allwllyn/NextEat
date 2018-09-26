@@ -14,41 +14,26 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
 {
     
     var chosenPlace: Restaurant?
-    
     var place: Place?
-    
     var favorited: Bool = false
-    
     var currentCity: City?
-    
     var citiesFetched: Bool = false
-    
     var cityExists: Bool = false
-    
     var dataController: DataController!
-    
     var fetchedResultsController: NSFetchedResultsController<City>!
-    
     let yelper = Yelper.sharedInstance()
     
     @IBOutlet weak var name: UILabel!
-    
     @IBOutlet weak var location: UILabel!
-    
     @IBOutlet weak var phone: UILabel!
-    
     @IBOutlet weak var rating: UILabel!
-    
     @IBOutlet weak var addButton: UIButton!
-    
     @IBOutlet weak var myFavoriteDish: UITextField!
     
     override func viewDidLoad()
     {
         super .viewDidLoad()
-        
         setDetails()
-        
         if favorited
         {
             addButton.isHidden = true
@@ -56,7 +41,8 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         super .viewWillAppear(true)
         cityExists = false
         setupFetchedResultsController()
@@ -94,17 +80,13 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
             {
                 print("couldn't save")
             }
-            
     }
     
     @IBAction func savePlace(_ sender: Any)
     {
         checkCities()
-        
         saveChosenPlace(chosenPlace!)
-        
         addButton.isUserInteractionEnabled = false
-        
         addButton.alpha = 0.2
     }
     
