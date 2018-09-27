@@ -57,6 +57,7 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
     {
         super.viewWillAppear(true)
         searchText.text = nil
+        cityText.text = nil
         yelper.filteredArray = []
         actIndicator.isHidden = true
         self.view.alpha = 1.0
@@ -92,6 +93,8 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         
         activateActView()
         
+        yelper.placeArray = []
+        
     yelper.searchByPhrase(cityText: cityText.text!, termText: searchText.text!)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -106,6 +109,8 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
     
     @IBAction func searchByLocation(_ sender: Any) {
         activateActView()
+        
+        yelper.placeArray = []
         
         location = localManager.location?.coordinate
         
