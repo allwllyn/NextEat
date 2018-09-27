@@ -15,7 +15,6 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
 {
     
     var tableTimer: Timer!
-    var fetchTimer: Timer!
     let yelper = Yelper.sharedInstance()
     var placeArray: [Restaurant?] = []
     var chosenPlace: Restaurant?
@@ -49,7 +48,6 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
         if fetching
         {
             setupFetchedResultsController()
-            // fetchTimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(setupFetchedResultsController), userInfo: nil, repeats: false)
         }
         
         if !fetching

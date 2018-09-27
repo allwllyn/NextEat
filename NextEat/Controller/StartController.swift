@@ -11,7 +11,7 @@ import CoreData
 import CoreLocation
 
 
-class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigationControllerDelegate, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate
+class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigationControllerDelegate, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate, UITextFieldDelegate
 {
 
     @IBOutlet weak var searchText: UITextField!
@@ -32,7 +32,8 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        searchText.delegate = self
+        cityText.delegate = self
         findNearTypeButton.alpha = 0.4
         icon.isUserInteractionEnabled = true
         icon.image = #imageLiteral(resourceName: "NextEatStartGif.png")
@@ -55,6 +56,9 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(true)
+        
+        subscribeKeyboardNotifications()
+        
         searchText.text = nil
         cityText.text = nil
         yelper.filteredArray = []
@@ -62,6 +66,11 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         self.view.alpha = 1.0
         
        setupFetchedResultsController()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super .viewWillDisappear(true)
+        unsubscribeFromKeyboardNotifications()
     }
     
     @IBAction func switchIcon(_ gestureRecognizer: UITapGestureRecognizer)
@@ -190,6 +199,48 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         location = locValue
+    }
+    //MARK: Keyboard notifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        //delegate method
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat
+    {
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
+    @objc func keyboardWillShow(_ notification:Notification)
+    {
+        
+            view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        
+    }
+    
+    @objc func keyboardWillHide(_ notification:Notification)
+    {
+        view.frame.origin.y = 0
+    }
+    
+    func subscribeKeyboardNotifications()
+    {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications()
+    {
+        
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        
     }
     
 }
