@@ -20,8 +20,6 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var actIndicator: UIActivityIndicatorView!
     @IBOutlet weak var listButton: UIBarButtonItem!
-    
-    
     @IBOutlet weak var findNearTypeButton: UIButton!
     
     var fetchedResultsController: NSFetchedResultsController<Place>!
@@ -46,7 +44,8 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         self.localManager.requestWhenInUseAuthorization()
         setupFetchedResultsController()
         
-        if CLLocationManager.locationServicesEnabled() {
+        if CLLocationManager.locationServicesEnabled()
+        {
             localManager.delegate = self
             localManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             localManager.startUpdatingLocation()
@@ -131,22 +130,6 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         }
     }
     
-    
-    
-   /* @IBAction func typeSearch(_ sender: Any)
-    {
-       activateActView()
-        
-        Yelper.sharedInstance().searchByPhrase(self, text: searchText)
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
-
-        vc.fetching = false
-        vc.dataController = startDataController
-        
-        self.navigationController?.pushViewController(vc, animated: true)
-    }*/
     
     func activateActView()
     {

@@ -71,10 +71,6 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
         }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return  1
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if fetching
@@ -173,9 +169,6 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
         }
     }
     
-    
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         let vc = segue.destination as! PlaceDetailController
@@ -196,8 +189,5 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
                     vc.favorited = false
                 }
     }
-    
-   
-    
     
 }
