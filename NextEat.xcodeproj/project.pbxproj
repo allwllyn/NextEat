@@ -13,7 +13,7 @@
 		4317E24921535C3B00A381F3 /* Town.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317E24821535C3B00A381F3 /* Town.swift */; };
 		4317E24B215491BA00A381F3 /* sushiCatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4317E24A215491BA00A381F3 /* sushiCatIcon.png */; };
 		4317E24D2156999D00A381F3 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317E24C2156999D00A381F3 /* CityCell.swift */; };
-		4317E253215B1E1E00A381F3 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 4317E252215B1E1D00A381F3 /* README */; };
+		4317E253215B1E1E00A381F3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4317E252215B1E1D00A381F3 /* README.md */; };
 		4351DFEB213DBDBE00DB378F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351DFEA213DBDBE00DB378F /* AppDelegate.swift */; };
 		4351DFED213DBDBE00DB378F /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351DFEC213DBDBE00DB378F /* StartController.swift */; };
 		4351DFF0213DBDBE00DB378F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4351DFEE213DBDBE00DB378F /* Main.storyboard */; };
@@ -70,7 +70,7 @@
 		4317E24821535C3B00A381F3 /* Town.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Town.swift; sourceTree = "<group>"; };
 		4317E24A215491BA00A381F3 /* sushiCatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sushiCatIcon.png; path = ../../../sushiCatIcon.png; sourceTree = "<group>"; };
 		4317E24C2156999D00A381F3 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
-		4317E252215B1E1D00A381F3 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		4317E252215B1E1D00A381F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4351DFE7213DBDBE00DB378F /* NextEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4351DFEA213DBDBE00DB378F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4351DFEC213DBDBE00DB378F /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 			children = (
 				4351DFEC213DBDBE00DB378F /* StartController.swift */,
 				4351E0492148905B00DB378F /* PlaceDetailController.swift */,
-				4317E252215B1E1D00A381F3 /* README */,
+				4317E252215B1E1D00A381F3 /* README.md */,
 				4351E04321457CC900DB378F /* PlaceListController.swift */,
 				4351E0472145E48F00DB378F /* CityListController.swift */,
 				4317E2422153276F00A381F3 /* DataController.swift */,
@@ -366,7 +366,7 @@
 				4317E247215357BE00A381F3 /* NextEatStartGif.png in Resources */,
 				4351E035213DD2E600DB378F /* IBMPlexMono-SemiBold.ttf in Resources */,
 				4351E032213DD2E600DB378F /* IBMPlexMono-Medium.ttf in Resources */,
-				4317E253215B1E1E00A381F3 /* README in Resources */,
+				4317E253215B1E1E00A381F3 /* README.md in Resources */,
 				4351E02B213DD2E600DB378F /* IBMPlexMono-Bold.ttf in Resources */,
 				4351DFF8213DBDC000DB378F /* LaunchScreen.storyboard in Resources */,
 				4351E036213DD2E600DB378F /* IBMPlexMono-SemiBoldItalic.ttf in Resources */,
