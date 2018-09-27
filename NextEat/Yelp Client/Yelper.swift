@@ -36,16 +36,17 @@ class Yelper: NSObject {
     }
     
     
-    func searchByPhrase(_ sender: AnyObject, text: UITextField)
+    func searchByPhrase(cityText: String, termText: String)
     {
     
-        if !text.text!.isEmpty
+        if !cityText.isEmpty
         {
-           // photoTitleLabel.text = "Searching..."
+           
             // TODO: Set necessary parameters!
             let methodParameters =
             [
-                Constants.YelpParameterKeys.Location: text.text!,
+                Constants.YelpParameterKeys.Location: cityText,
+                Constants.YelpParameterKeys.Term: termText,
                 Constants.YelpParameterKeys.SortBy: Constants.YelpParameterValues.Sorter,
                 Constants.YelpParameterKeys.Limit: Constants.YelpParameterValues.LimitAmount, Constants.YelpParameterKeys.Category: Constants.YelpParameterValues.Category
             ]
@@ -64,6 +65,30 @@ class Yelper: NSObject {
             //statusLabel.text = "Phrase Empty."
             print("phrase empty")
         }
+    }
+    
+    func searchNearby(latitude: String, longitude: String, text: String)
+    {
+        
+        
+            // TODO: Set necessary parameters!
+            let methodParameters =
+            [
+                    Constants.YelpParameterKeys.Term: text,
+                    Constants.YelpParameterKeys.Latitude: latitude,
+                    Constants.YelpParameterKeys.Longitude: longitude,
+                    Constants.YelpParameterKeys.SortBy: Constants.YelpParameterValues.Sorter,
+                    Constants.YelpParameterKeys.Limit: Constants.YelpParameterValues.LimitAmount, Constants.YelpParameterKeys.Category: Constants.YelpParameterValues.Category
+            ]
+            placesFromYelpBySearch(methodParameters as [String:AnyObject])
+            {
+                success in
+                if success
+                {
+                    print("succesful!")
+                    
+                }
+            }
     }
     
     private func placesFromYelpBySearch(_ methodParameters: [String: AnyObject], _ completion: @escaping (_ success: Bool) -> Void)
@@ -141,10 +166,6 @@ class Yelper: NSObject {
                     let location = i["location"] as! [String:AnyObject]
                   //  let cityName = location["city"] as! String
                     
-                    //if !self.cityArray.contains(cityName)
-                    //{
-                     //   self.cityArray.append(cityName)
-                    //}
                    
                         let name = (i["name"] as! String)
                         let city = (location["city"] as! String)

@@ -20,8 +20,6 @@ struct Constants {
         static let APIHost = "api.yelp.com"
         static let APIPath = "/v3/businesses/search"
         
-        static let SearchBBoxHalfWidth = 1.0
-        static let SearchBBoxHalfHeight = 1.0
         static let SearchLatRange = (-90.0, 90.0)
         static let SearchLonRange = (-180.0, 180.0)
     }
@@ -32,11 +30,10 @@ struct Constants {
         static let APIKey = "api_key"
         static let SortBy = "sort_by"
         static let Limit = "limit"
-        static let NoJSONCallback = "nojsoncallback"
+        static let Term = "term"
         static let Latitude = "latitude"
         static let Longitude = "longitude"
         static let Location = "location"
-        static let BoundingBox = "bbox"
         static let Page = "page"
         static let Category = "categories"
     }
@@ -47,8 +44,6 @@ struct Constants {
         static let APIKey = "WWkGUJ8sJsZlpcZg01n9XKQK11VS2GTXegY34UJIuf3GTk5tjBbu_VAFTAanQ3Tbkf79BUjp14Bib9XrpWoVQParSTORPj7XbBB4zFZgosYL7ucrCBjzJGqxK7yNW3Yx"
         static let ResponseFormat = "json"
         static let LimitAmount = "10"
-        static let DisableJSONCallback = "1" /* 1 means "yes" */
-       // static let GalleryPhotosMethod = //get something from yelp
         static let Sorter = "rating"
         static let Category = "restaurants"
     }
@@ -72,14 +67,4 @@ struct Constants {
         static let OKStatus = "ok"
     }
     
-    // FIX: As of Swift 2.2, using strings for selectors has been deprecated. Instead, #selector(methodName) should be used.
-    /*
-     // MARK: Selectors
-     struct Selectors {
-     static let KeyboardWillShow: Selector = "keyboardWillShow:"
-     static let KeyboardWillHide: Selector = "keyboardWillHide:"
-     static let KeyboardDidShow: Selector = "keyboardDidShow:"
-     static let KeyboardDidHide: Selector = "keyboardDidHide:"
-     }
-     */
 }

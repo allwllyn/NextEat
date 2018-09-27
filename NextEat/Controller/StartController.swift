@@ -8,30 +8,49 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
-class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigationControllerDelegate, NSFetchedResultsControllerDelegate
+
+class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigationControllerDelegate, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate
 {
 
     @IBOutlet weak var searchText: UITextField!
+    @IBOutlet weak var cityText: UITextField!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var actIndicator: UIActivityIndicatorView!
     @IBOutlet weak var listButton: UIBarButtonItem!
+    
+    
+    @IBOutlet weak var findNearTypeButton: UIButton!
+    
     var fetchedResultsController: NSFetchedResultsController<Place>!
     var startDataController: DataController!
+    var location: CLLocationCoordinate2D?
     let yelper = Yelper.sharedInstance()
+    let localManager = CLLocationManager()
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        findNearTypeButton.alpha = 0.4
         icon.isUserInteractionEnabled = true
         icon.image = #imageLiteral(resourceName: "NextEatStartGif.png")
         icon.rotate360Degrees()
         tapRecognizer.delegate = self
         actIndicator.isHidden = true
-        
+        localManager.delegate = self
+        self.localManager.requestAlwaysAuthorization()
+        self.localManager.requestWhenInUseAuthorization()
         setupFetchedResultsController()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            localManager.delegate = self
+            localManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            localManager.startUpdatingLocation()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -61,11 +80,57 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         }
     }
     
-    @IBAction func typeSearch(_ sender: Any)
+    
+    @IBAction func activateFindNear(_ sender: Any) {
+        
+        findNearTypeButton.isEnabled = true
+        findNearTypeButton.alpha = 1.0
+        
+    }
+    
+    @IBAction func searchByTypedCity(_ sender: Any) {
+        
+        activateActView()
+        
+    yelper.searchByPhrase(cityText: cityText.text!, termText: searchText.text!)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
+        
+        vc.fetching = false
+        vc.dataController = startDataController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    @IBAction func searchByLocation(_ sender: Any) {
+        activateActView()
+        
+        location = localManager.location?.coordinate
+        
+        if location != nil
+        {
+        yelper.searchNearby(latitude: (location?.latitude.description)!, longitude: (location?.longitude.description)!, text: searchText.text!)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
+        
+        vc.fetching = false
+        vc.dataController = startDataController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else{
+            print("location not working")
+        }
+    }
+    
+    
+    
+   /* @IBAction func typeSearch(_ sender: Any)
     {
-        self.view.alpha = 0.5
-        actIndicator.isHidden = false
-        actIndicator.startAnimating()
+       activateActView()
         
         Yelper.sharedInstance().searchByPhrase(self, text: searchText)
         
@@ -76,6 +141,13 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         vc.dataController = startDataController
         
         self.navigationController?.pushViewController(vc, animated: true)
+    }*/
+    
+    func activateActView()
+    {
+        self.view.alpha = 0.5
+        actIndicator.isHidden = false
+        actIndicator.startAnimating()
     }
     
     @objc fileprivate func setupFetchedResultsController()
@@ -124,6 +196,12 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         vc.dataController = startDataController
         
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        location = locValue
     }
     
 }

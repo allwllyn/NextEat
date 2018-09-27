@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cGe-tR-CAh">
-                                <rect key="frame" x="20" y="124" width="335" height="393"/>
+                                <rect key="frame" x="20" y="84" width="335" height="463"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" text="Next Eat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugj-wq-jkO">
                                         <rect key="frame" x="59.5" y="0.0" width="216" height="58.5"/>
@@ -38,7 +38,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="800" verticalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="Dgn-sy-ONF">
-                                        <rect key="frame" x="47.5" y="85" width="240" height="180"/>
+                                        <rect key="frame" x="47.5" y="72" width="240" height="180"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Dgn-sy-ONF" secondAttribute="height" multiplier="4:3" id="6yp-uL-19m"/>
@@ -50,26 +50,57 @@
                                             <outletCollection property="gestureRecognizers" destination="Neu-Ji-Lw5" appends="YES" id="8jE-uw-rdA"/>
                                         </connections>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Hungry?!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beL-fZ-ayf">
-                                        <rect key="frame" x="92.5" y="291.5" width="150" height="40"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Type of Cuisine" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beL-fZ-ayf">
+                                        <rect key="frame" x="47.5" y="266" width="240" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="ReM-YS-dlv"/>
-                                            <constraint firstAttribute="height" constant="40" id="ZDL-M5-acp"/>
+                                            <constraint firstAttribute="height" constant="40" id="R6k-q9-Yst"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="typeSearch:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="zCw-fz-kkv"/>
-                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnE-Au-qkZ">
-                                        <rect key="frame" x="101" y="358" width="133" height="35"/>
-                                        <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
-                                        <state key="normal" title="Search Nearby"/>
+                                        <rect key="frame" x="83.5" y="319.5" width="168" height="38"/>
+                                        <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="20"/>
+                                        <state key="normal" title="Search near me"/>
+                                        <connections>
+                                            <action selector="searchByLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Oz-zi-Wob"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmF-Gr-2rH">
+                                        <rect key="frame" x="47.5" y="371.5" width="240" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="or type city" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bp4-4l-fXO">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="vNd-4b-kSL"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="activateFindNear:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="5S5-wX-9tt"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNU-xg-YyA">
+                                        <rect key="frame" x="101.5" y="425" width="132" height="38"/>
+                                        <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="20"/>
+                                        <state key="normal" title="Find near ^"/>
+                                        <connections>
+                                            <action selector="searchByTypedCity:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7t0-Ra-V0e"/>
+                                        </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="beL-fZ-ayf" secondAttribute="trailing" constant="47.5" id="7v5-CI-Uoe"/>
+                                    <constraint firstItem="vmF-Gr-2rH" firstAttribute="leading" secondItem="cGe-tR-CAh" secondAttribute="leading" constant="47.5" id="AG8-7X-nUN"/>
+                                    <constraint firstItem="beL-fZ-ayf" firstAttribute="leading" secondItem="cGe-tR-CAh" secondAttribute="leading" constant="47.5" id="U0F-hT-baI"/>
+                                    <constraint firstAttribute="trailing" secondItem="vmF-Gr-2rH" secondAttribute="trailing" constant="47.5" id="eA8-x0-eyh"/>
+                                </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YT6-Zu-DqP">
                                 <rect key="frame" x="177" y="323.5" width="20" height="20"/>
@@ -80,11 +111,11 @@
                             <constraint firstItem="YT6-Zu-DqP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Hj-aC-Aar"/>
                             <constraint firstItem="YT6-Zu-DqP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NPC-Zv-Xti"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cGe-tR-CAh" secondAttribute="trailing" constant="20" id="OdT-rI-Q7u"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cGe-tR-CAh" secondAttribute="bottom" constant="150" id="PhU-cX-uoL"/>
                             <constraint firstItem="cGe-tR-CAh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R9B-Gp-CSJ"/>
                             <constraint firstItem="YT6-Zu-DqP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Xhl-7z-yrM"/>
-                            <constraint firstItem="cGe-tR-CAh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="fMh-cu-5lT"/>
                             <constraint firstItem="YT6-Zu-DqP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jew-ZY-5ey"/>
+                            <constraint firstItem="cGe-tR-CAh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="k0L-yl-Tb9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cGe-tR-CAh" secondAttribute="bottom" constant="120" id="wjn-qU-7oI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -97,6 +128,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="actIndicator" destination="YT6-Zu-DqP" id="EwM-or-DtN"/>
+                        <outlet property="cityText" destination="bp4-4l-fXO" id="7Av-Gl-VgH"/>
+                        <outlet property="findNearTypeButton" destination="hNU-xg-YyA" id="4L7-ib-Pgu"/>
                         <outlet property="icon" destination="Dgn-sy-ONF" id="tZS-Pa-Ftf"/>
                         <outlet property="listButton" destination="1zl-9k-4q2" id="4Vr-NM-kgf"/>
                         <outlet property="searchText" destination="beL-fZ-ayf" id="dPr-4c-3dZ"/>

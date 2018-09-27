@@ -24,6 +24,12 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Can Next Eat use your location to find places nearby?</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Next Eat would like to use your location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Next Eat wants to use your location to search for restaurants</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
