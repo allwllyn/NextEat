@@ -15,9 +15,6 @@
         <array key="IBMPlexMono-Bold.ttf">
             <string>IBMPlexMono-Bold</string>
         </array>
-        <array key="IBMPlexMono-Regular.ttf">
-            <string>IBMPlexMono</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Start Controller-->
@@ -32,13 +29,13 @@
                                 <rect key="frame" x="20" y="84" width="335" height="463"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" text="Next Eat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugj-wq-jkO">
-                                        <rect key="frame" x="59.5" y="0.0" width="216" height="58.5"/>
-                                        <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="45"/>
+                                        <rect key="frame" x="59" y="0.0" width="217" height="52.5"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="45"/>
                                         <color key="textColor" red="1" green="0.36983814826870909" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="800" verticalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="Dgn-sy-ONF">
-                                        <rect key="frame" x="47.5" y="72" width="240" height="180"/>
+                                        <rect key="frame" x="47.5" y="68" width="240" height="180"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Dgn-sy-ONF" secondAttribute="height" multiplier="4:3" id="6yp-uL-19m"/>
@@ -51,18 +48,18 @@
                                         </connections>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Type of Cuisine" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="beL-fZ-ayf">
-                                        <rect key="frame" x="47.5" y="266" width="240" height="40"/>
+                                        <rect key="frame" x="47.5" y="264" width="240" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="R6k-q9-Yst"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnE-Au-qkZ">
-                                        <rect key="frame" x="83.5" y="319.5" width="168" height="38"/>
-                                        <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="20"/>
+                                        <rect key="frame" x="83" y="319.5" width="169" height="36"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
                                         <state key="normal" title="Search near me"/>
                                         <connections>
                                             <action selector="searchByLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Oz-zi-Wob"/>
@@ -78,7 +75,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="vNd-4b-kSL"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="activateFindNear:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="5S5-wX-9tt"/>
@@ -87,8 +84,8 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNU-xg-YyA">
-                                        <rect key="frame" x="101.5" y="425" width="132" height="38"/>
-                                        <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="20"/>
+                                        <rect key="frame" x="101" y="427" width="133" height="36"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
                                         <state key="normal" title="Find near ^"/>
                                         <connections>
                                             <action selector="searchByTypedCity:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7t0-Ra-V0e"/>
@@ -147,71 +144,6 @@
             </objects>
             <point key="canvasLocation" x="1153" y="32"/>
         </scene>
-        <!--Search Result Controller-->
-        <scene sceneID="9iK-gp-glS">
-            <objects>
-                <tableViewController id="iQI-oy-LpQ" customClass="SearchResultController" customModule="NextEat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="agO-Ob-a9A">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="placeCell" rowHeight="149" id="Ezw-lg-td8" customClass="PlaceCell" customModule="NextEat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="149"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ezw-lg-td8" id="ka9-S1-mMb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="148.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UjW-jb-nbi">
-                                            <rect key="frame" x="16" y="24" width="102" height="100.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="102" id="L4x-Bt-jlw"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0K-fI-xBt">
-                                            <rect key="frame" x="157" y="63.5" width="51.5" height="22.5"/>
-                                            <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="88f-g1-QfH">
-                                            <rect key="frame" x="59" y="64.5" width="20" height="20"/>
-                                        </activityIndicatorView>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.79123429820000002" green="1" blue="0.88266427319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="a0K-fI-xBt" firstAttribute="centerY" secondItem="ka9-S1-mMb" secondAttribute="centerY" id="8SD-xd-7Au"/>
-                                        <constraint firstItem="88f-g1-QfH" firstAttribute="centerY" secondItem="ka9-S1-mMb" secondAttribute="centerY" id="BFD-q0-ruC"/>
-                                        <constraint firstItem="UjW-jb-nbi" firstAttribute="top" secondItem="ka9-S1-mMb" secondAttribute="topMargin" constant="13" id="JgJ-74-UQY"/>
-                                        <constraint firstItem="UjW-jb-nbi" firstAttribute="centerY" secondItem="88f-g1-QfH" secondAttribute="centerY" id="VlE-CW-M2D"/>
-                                        <constraint firstItem="a0K-fI-xBt" firstAttribute="leading" secondItem="88f-g1-QfH" secondAttribute="trailing" constant="78" id="g3J-SJ-Bml"/>
-                                        <constraint firstItem="UjW-jb-nbi" firstAttribute="leading" secondItem="ka9-S1-mMb" secondAttribute="leadingMargin" id="oLo-iW-Wi3"/>
-                                        <constraint firstItem="UjW-jb-nbi" firstAttribute="centerY" secondItem="ka9-S1-mMb" secondAttribute="centerY" id="sRd-55-zSA"/>
-                                        <constraint firstItem="a0K-fI-xBt" firstAttribute="leading" secondItem="UjW-jb-nbi" secondAttribute="trailing" constant="39" id="x8V-en-yef"/>
-                                        <constraint firstItem="UjW-jb-nbi" firstAttribute="centerY" secondItem="ka9-S1-mMb" secondAttribute="centerY" id="xjP-O3-Ojq"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="activityView" destination="88f-g1-QfH" id="uvt-80-MLF"/>
-                                    <outlet property="placeImage" destination="UjW-jb-nbi" id="kOl-0Z-ny4"/>
-                                    <outlet property="placeName" destination="a0K-fI-xBt" id="7sr-Ff-y2y"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="iQI-oy-LpQ" id="iFy-gh-gy3"/>
-                            <outlet property="delegate" destination="iQI-oy-LpQ" id="0kP-Q5-aIJ"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <outlet property="placeTable" destination="agO-Ob-a9A" id="hj1-Cp-QRe"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R3Y-jk-PYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2118" y="919"/>
-        </scene>
         <!--City List Controller-->
         <scene sceneID="CgB-c6-zw0">
             <objects>
@@ -232,7 +164,7 @@
                                             <rect key="frame" x="16" y="0.0" width="343" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.57649668409999999" green="0.96058865059999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="30"/>
+                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -284,7 +216,7 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="5M3-6s-VYE">
                                             <rect key="frame" x="157" y="59" width="202" height="31"/>
-                                            <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -337,75 +269,75 @@
                                 <rect key="frame" x="20" y="74" width="335" height="413"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="4D6-bv-c9y">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="48.5"/>
-                                        <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="37"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="37"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONF-93-yRE">
-                                        <rect key="frame" x="0.0" y="80.5" width="103" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="78.5" width="103" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jf-tL-rso">
-                                                <rect key="frame" x="0.0" y="0.0" width="51.5" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="51.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a85-y3-KeJ">
-                                                <rect key="frame" x="51.5" y="0.0" width="51.5" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <rect key="frame" x="51.5" y="0.0" width="51.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="f80-5a-iAd">
-                                        <rect key="frame" x="0.0" y="135" width="113" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="133.5" width="113" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ON-DY-rtZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5df-dr-Rhn">
-                                                <rect key="frame" x="61.5" y="0.0" width="51.5" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <rect key="frame" x="61.5" y="0.0" width="51.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="OdH-Mp-n38">
-                                        <rect key="frame" x="0.0" y="189.5" width="113" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="189" width="113" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pN-T8-2xv">
-                                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="61.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTz-cS-Iw4">
-                                                <rect key="frame" x="61.5" y="0.0" width="51.5" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <rect key="frame" x="61.5" y="0.0" width="51.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="5TT-uZ-PJX">
-                                        <rect key="frame" x="0.0" y="244" width="325" height="28"/>
+                                        <rect key="frame" x="0.0" y="244" width="325" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My dish:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVv-kw-Udw">
-                                                <rect key="frame" x="0.0" y="0.0" width="82" height="22.5"/>
-                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="20"/>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXD-U3-ykm">
-                                                <rect key="frame" x="83" y="0.0" width="242" height="28"/>
+                                                <rect key="frame" x="83" y="0.0" width="242" height="25"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" name="IBMPlexMono" family="IBM Plex Mono" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="typeMyDish:" destination="1hE-I4-YjL" eventType="editingDidEnd" id="7Wc-9L-WYk"/>
