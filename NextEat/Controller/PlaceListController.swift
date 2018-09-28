@@ -32,15 +32,6 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
     {
         super .viewDidLoad()
         
-        if dataController != nil {
-            print("dataController still here")
-        }
-        
-       else if dataController == nil
-        {
-            print("dataController has disappeared already")
-        }
-        
         placeTable.delegate = self
         
         placeTable.allowsMultipleSelectionDuringEditing = false
