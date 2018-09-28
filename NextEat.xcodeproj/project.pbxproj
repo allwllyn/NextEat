@@ -27,6 +27,7 @@
 		4351E0462145A15500DB378F /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E0452145A15500DB378F /* PlaceCell.swift */; };
 		4351E0482145E48F00DB378F /* CityListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E0472145E48F00DB378F /* CityListController.swift */; };
 		4351E04A2148905B00DB378F /* PlaceDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E0492148905B00DB378F /* PlaceDetailController.swift */; };
+		4384BF20215EA22F0094D714 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4384BF1F215EA22F0094D714 /* UIViewControllerExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		4351E0452145A15500DB378F /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		4351E0472145E48F00DB378F /* CityListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListController.swift; sourceTree = "<group>"; };
 		4351E0492148905B00DB378F /* PlaceDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailController.swift; sourceTree = "<group>"; };
+		4384BF1F215EA22F0094D714 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				4351E03F2145713900DB378F /* Restaurant.swift */,
 				4317E24821535C3B00A381F3 /* Town.swift */,
 				4317E244215343A700A381F3 /* UIViewExt.swift */,
+				4384BF1F215EA22F0094D714 /* UIViewControllerExt.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				4351DFF3213DBDBE00DB378F /* NextEat.xcdatamodeld in Sources */,
 				4351E03E213DD92C00DB378F /* Yelper.swift in Sources */,
 				4351E0402145713900DB378F /* Restaurant.swift in Sources */,
+				4384BF20215EA22F0094D714 /* UIViewControllerExt.swift in Sources */,
 				4351DFEB213DBDBE00DB378F /* AppDelegate.swift in Sources */,
 				4317E2432153276F00A381F3 /* DataController.swift in Sources */,
 				4351E03B213DD8EF00DB378F /* Constants.swift in Sources */,

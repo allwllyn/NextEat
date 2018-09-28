@@ -36,7 +36,7 @@ class Yelper: NSObject {
     }
     
     
-    func searchByPhrase(cityText: String, termText: String, _ completion: @escaping (_ success: Bool) -> Void)
+    func searchByPhrase(cityText: String, termText: String, _ completion: @escaping(_ success: Bool, _ errorString: String?) -> Void)
     {
         
         if !cityText.isEmpty
@@ -52,16 +52,19 @@ class Yelper: NSObject {
             ]
             placesFromYelpBySearch(methodParameters as [String:AnyObject])
             {
-                success in
-                if success
+                (success, errorString) in
+                
+                if errorString != nil
                 {
+                    completion(false,errorString)
+                    print(errorString!)
+                }
+                else if success
+                {
+                    completion(true,nil)
                     print("succesful!")
-                    completion(true)
                 }
-                else
-                {
-                    completion(false)
-                }
+               
             }
         }
         else
@@ -71,7 +74,7 @@ class Yelper: NSObject {
         }
     }
     
-    func searchNearby(latitude: String, longitude: String, text: String, _ completion: @escaping (_ success: Bool) -> Void)
+    func searchNearby(latitude: String, longitude: String, text: String,_ completion: @escaping(_ success: Bool, _ errorString: String?) -> Void)
     {
         
         
@@ -86,20 +89,21 @@ class Yelper: NSObject {
         ]
         placesFromYelpBySearch(methodParameters as [String:AnyObject])
         {
-            success in
-            if success
+            (success, errorString)  in
+            if errorString != nil
             {
-                completion(true)
-                print("succesful!")
+                completion(false,errorString)
+                print(errorString!)
             }
-            else
+            else if success
             {
-                completion(false)
+                completion(true,nil)
+                print("succesful!")
             }
         }
     }
     
-    private func placesFromYelpBySearch(_ methodParameters: [String: AnyObject], _ completion: @escaping (_ success: Bool) -> Void)
+    private func placesFromYelpBySearch(_ methodParameters: [String: AnyObject], _ completion: @escaping (_ success: Bool, _ errorString: String?) -> Void)
     {
         
         let session = URLSession.shared
@@ -115,13 +119,13 @@ class Yelper: NSObject {
             }
             else
             {
-                print(error!.localizedDescription)
-                completion(false)
+                completion(false, error!.localizedDescription)
             }
             
             func displayError(_ error: String)
             {
                 print(error)
+                
             }
             /* GUARD: Was there an error? */
             guard (error == nil) else
@@ -196,7 +200,7 @@ class Yelper: NSObject {
                 }
                 if self.placeArray.count > 0
                 {
-                    completion(true)
+                    completion(true, nil)
                 }
                 print(self.placeArray)
             }
@@ -207,7 +211,7 @@ class Yelper: NSObject {
         print(yelpURLFromParameters(methodParameters))
     }
     
-    //MARK: Create Singleton
+    
     class func sharedInstance() -> Yelper
     {
         struct Singleton
@@ -216,5 +220,5 @@ class Yelper: NSObject {
         }
         return Singleton.sharedInstance
         
-    } 
+    }
 }

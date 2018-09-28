@@ -49,18 +49,6 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
         }
     }
     
-    override func viewWillAppear(_ animated: Bool)
-    {
-        super .viewWillAppear(true)
-        if fetching
-        {
-           // fetchedResults soemthing
-        }
-        else
-        {
-            placeArray = yelper.placeArray.sorted(by: {$0.name < $1.name})
-        }
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
