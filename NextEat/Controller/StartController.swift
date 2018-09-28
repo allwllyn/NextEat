@@ -13,7 +13,7 @@ import CoreLocation
 
 class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigationControllerDelegate, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate, UITextFieldDelegate
 {
-
+    
     @IBOutlet weak var searchText: UITextField!
     @IBOutlet weak var cityText: UITextField!
     @IBOutlet weak var icon: UIImageView!
@@ -65,7 +65,7 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         actIndicator.isHidden = true
         self.view.alpha = 1.0
         
-       setupFetchedResultsController()
+        setupFetchedResultsController()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -77,33 +77,33 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
     {
         if gestureRecognizer.state == .ended
         {
-            if icon.image == #imageLiteral(resourceName: "NextEatStartGif.png")
+            if icon.image == #imageLiteral(resourceName: "NextEatStartGif")
             {
-                icon.image = #imageLiteral(resourceName: "sushiCatIcon.png")
+                icon.image = #imageLiteral(resourceName: "sushiCatIcon")
             }
-        
-            else if icon.image == #imageLiteral(resourceName: "sushiCatIcon.png")
+                
+            else if icon.image == #imageLiteral(resourceName: "sushiCatIcon")
             {
-                icon.image = #imageLiteral(resourceName: "NextEatStartGif.png")
+                icon.image = #imageLiteral(resourceName: "NextEatStartGif")
             }
         }
     }
     
     
-    @IBAction func activateFindNear(_ sender: Any) {
-        
+    @IBAction func activateFindNear(_ sender: Any)
+    {
         findNearTypeButton.isEnabled = true
         findNearTypeButton.alpha = 1.0
-        
     }
     
-    @IBAction func searchByTypedCity(_ sender: Any) {
+    @IBAction func searchByTypedCity(_ sender: Any)
+    {
         
         activateActView()
         
         yelper.placeArray = []
         
-    yelper.searchByPhrase(cityText: cityText.text!, termText: searchText.text!)
+        yelper.searchByPhrase(cityText: cityText.text!, termText: searchText.text!)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
@@ -115,7 +115,8 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
     }
     
     
-    @IBAction func searchByLocation(_ sender: Any) {
+    @IBAction func searchByLocation(_ sender: Any)
+    {
         activateActView()
         
         yelper.placeArray = []
@@ -124,17 +125,18 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         
         if location != nil
         {
-        yelper.searchNearby(latitude: (location?.latitude.description)!, longitude: (location?.longitude.description)!, text: searchText.text!)
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
-        
-        vc.fetching = false
-        vc.dataController = startDataController
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+            yelper.searchNearby(latitude: (location?.latitude.description)!, longitude: (location?.longitude.description)!, text: searchText.text!)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
+            
+            vc.fetching = false
+            vc.dataController = startDataController
+            
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-        else{
+        else
+        {
             print("location not working")
         }
     }
@@ -195,7 +197,8 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         location = locValue
@@ -220,7 +223,7 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
     @objc func keyboardWillShow(_ notification:Notification)
     {
         
-            view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        view.frame.origin.y = 0 - getKeyboardHeight(notification)
         
     }
     

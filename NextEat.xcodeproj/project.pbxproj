@@ -9,34 +9,18 @@
 /* Begin PBXBuildFile section */
 		4317E2432153276F00A381F3 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317E2422153276F00A381F3 /* DataController.swift */; };
 		4317E245215343A700A381F3 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317E244215343A700A381F3 /* UIViewExt.swift */; };
-		4317E247215357BE00A381F3 /* NextEatStartGif.png in Resources */ = {isa = PBXBuildFile; fileRef = 4317E246215357BE00A381F3 /* NextEatStartGif.png */; };
 		4317E24921535C3B00A381F3 /* Town.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317E24821535C3B00A381F3 /* Town.swift */; };
-		4317E24B215491BA00A381F3 /* sushiCatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4317E24A215491BA00A381F3 /* sushiCatIcon.png */; };
 		4317E24D2156999D00A381F3 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317E24C2156999D00A381F3 /* CityCell.swift */; };
 		4317E253215B1E1E00A381F3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4317E252215B1E1D00A381F3 /* README.md */; };
+		4317E256215DA75200A381F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4317E255215DA75200A381F3 /* Assets.xcassets */; };
+		4317E273215DA97500A381F3 /* IBMPlexMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4317E265215DA97500A381F3 /* IBMPlexMono-Regular.ttf */; };
 		4351DFEB213DBDBE00DB378F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351DFEA213DBDBE00DB378F /* AppDelegate.swift */; };
 		4351DFED213DBDBE00DB378F /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351DFEC213DBDBE00DB378F /* StartController.swift */; };
 		4351DFF0213DBDBE00DB378F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4351DFEE213DBDBE00DB378F /* Main.storyboard */; };
 		4351DFF3213DBDBE00DB378F /* NextEat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4351DFF1213DBDBE00DB378F /* NextEat.xcdatamodeld */; };
-		4351DFF5213DBDC000DB378F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4351DFF4213DBDC000DB378F /* Assets.xcassets */; };
 		4351DFF8213DBDC000DB378F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4351DFF6213DBDC000DB378F /* LaunchScreen.storyboard */; };
 		4351E003213DBDC000DB378F /* NextEatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E002213DBDC000DB378F /* NextEatTests.swift */; };
 		4351E00E213DBDC000DB378F /* NextEatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E00D213DBDC000DB378F /* NextEatUITests.swift */; };
-		4351E02B213DD2E600DB378F /* IBMPlexMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E01C213DD2E600DB378F /* IBMPlexMono-Bold.ttf */; };
-		4351E02C213DD2E600DB378F /* IBMPlexMono-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E01D213DD2E600DB378F /* IBMPlexMono-BoldItalic.ttf */; };
-		4351E02D213DD2E600DB378F /* IBMPlexMono-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E01E213DD2E600DB378F /* IBMPlexMono-ExtraLight.ttf */; };
-		4351E02E213DD2E600DB378F /* IBMPlexMono-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E01F213DD2E600DB378F /* IBMPlexMono-ExtraLightItalic.ttf */; };
-		4351E02F213DD2E600DB378F /* IBMPlexMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E020213DD2E600DB378F /* IBMPlexMono-Italic.ttf */; };
-		4351E030213DD2E600DB378F /* IBMPlexMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E021213DD2E600DB378F /* IBMPlexMono-Light.ttf */; };
-		4351E031213DD2E600DB378F /* IBMPlexMono-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E022213DD2E600DB378F /* IBMPlexMono-LightItalic.ttf */; };
-		4351E032213DD2E600DB378F /* IBMPlexMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E023213DD2E600DB378F /* IBMPlexMono-Medium.ttf */; };
-		4351E033213DD2E600DB378F /* IBMPlexMono-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E024213DD2E600DB378F /* IBMPlexMono-MediumItalic.ttf */; };
-		4351E034213DD2E600DB378F /* IBMPlexMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E025213DD2E600DB378F /* IBMPlexMono-Regular.ttf */; };
-		4351E035213DD2E600DB378F /* IBMPlexMono-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E026213DD2E600DB378F /* IBMPlexMono-SemiBold.ttf */; };
-		4351E036213DD2E600DB378F /* IBMPlexMono-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E027213DD2E600DB378F /* IBMPlexMono-SemiBoldItalic.ttf */; };
-		4351E037213DD2E600DB378F /* IBMPlexMono-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E028213DD2E600DB378F /* IBMPlexMono-Thin.ttf */; };
-		4351E038213DD2E600DB378F /* IBMPlexMono-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4351E029213DD2E600DB378F /* IBMPlexMono-ThinItalic.ttf */; };
-		4351E039213DD2E600DB378F /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4351E02A213DD2E600DB378F /* OFL.txt */; };
 		4351E03B213DD8EF00DB378F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E03A213DD8EF00DB378F /* Constants.swift */; };
 		4351E03E213DD92C00DB378F /* Yelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E03D213DD92C00DB378F /* Yelper.swift */; };
 		4351E0402145713900DB378F /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351E03F2145713900DB378F /* Restaurant.swift */; };
@@ -66,17 +50,16 @@
 /* Begin PBXFileReference section */
 		4317E2422153276F00A381F3 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		4317E244215343A700A381F3 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
-		4317E246215357BE00A381F3 /* NextEatStartGif.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NextEatStartGif.png; path = ../../../NextEatStartGif.png; sourceTree = "<group>"; };
 		4317E24821535C3B00A381F3 /* Town.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Town.swift; sourceTree = "<group>"; };
-		4317E24A215491BA00A381F3 /* sushiCatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sushiCatIcon.png; path = ../../../sushiCatIcon.png; sourceTree = "<group>"; };
 		4317E24C2156999D00A381F3 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		4317E252215B1E1D00A381F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4317E255215DA75200A381F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
+		4317E265215DA97500A381F3 /* IBMPlexMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Regular.ttf"; sourceTree = "<group>"; };
 		4351DFE7213DBDBE00DB378F /* NextEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4351DFEA213DBDBE00DB378F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4351DFEC213DBDBE00DB378F /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		4351DFEF213DBDBE00DB378F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4351DFF2213DBDBE00DB378F /* NextEat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NextEat.xcdatamodel; sourceTree = "<group>"; };
-		4351DFF4213DBDC000DB378F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4351DFF7213DBDC000DB378F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4351DFF9213DBDC000DB378F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4351DFFE213DBDC000DB378F /* NextEatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NextEatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,21 +68,6 @@
 		4351E009213DBDC000DB378F /* NextEatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NextEatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4351E00D213DBDC000DB378F /* NextEatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextEatUITests.swift; sourceTree = "<group>"; };
 		4351E00F213DBDC000DB378F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4351E01C213DD2E600DB378F /* IBMPlexMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Bold.ttf"; sourceTree = "<group>"; };
-		4351E01D213DD2E600DB378F /* IBMPlexMono-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-BoldItalic.ttf"; sourceTree = "<group>"; };
-		4351E01E213DD2E600DB378F /* IBMPlexMono-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-ExtraLight.ttf"; sourceTree = "<group>"; };
-		4351E01F213DD2E600DB378F /* IBMPlexMono-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		4351E020213DD2E600DB378F /* IBMPlexMono-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Italic.ttf"; sourceTree = "<group>"; };
-		4351E021213DD2E600DB378F /* IBMPlexMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Light.ttf"; sourceTree = "<group>"; };
-		4351E022213DD2E600DB378F /* IBMPlexMono-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-LightItalic.ttf"; sourceTree = "<group>"; };
-		4351E023213DD2E600DB378F /* IBMPlexMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Medium.ttf"; sourceTree = "<group>"; };
-		4351E024213DD2E600DB378F /* IBMPlexMono-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-MediumItalic.ttf"; sourceTree = "<group>"; };
-		4351E025213DD2E600DB378F /* IBMPlexMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Regular.ttf"; sourceTree = "<group>"; };
-		4351E026213DD2E600DB378F /* IBMPlexMono-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-SemiBold.ttf"; sourceTree = "<group>"; };
-		4351E027213DD2E600DB378F /* IBMPlexMono-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		4351E028213DD2E600DB378F /* IBMPlexMono-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Thin.ttf"; sourceTree = "<group>"; };
-		4351E029213DD2E600DB378F /* IBMPlexMono-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-ThinItalic.ttf"; sourceTree = "<group>"; };
-		4351E02A213DD2E600DB378F /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		4351E03A213DD8EF00DB378F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4351E03D213DD92C00DB378F /* Yelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yelper.swift; sourceTree = "<group>"; };
 		4351E03F2145713900DB378F /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -134,6 +102,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4317E259215DA8E900A381F3 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4317E25B215DA97500A381F3 /* IBM_Plex_Mono */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		4317E25B215DA97500A381F3 /* IBM_Plex_Mono */ = {
+			isa = PBXGroup;
+			children = (
+				4317E265215DA97500A381F3 /* IBMPlexMono-Regular.ttf */,
+			);
+			name = IBM_Plex_Mono;
+			path = ../../../../../../../../Documents/Creative/fonts/IBM_Plex_Mono;
+			sourceTree = "<group>";
+		};
 		4351DFDE213DBDBE00DB378F = {
 			isa = PBXGroup;
 			children = (
@@ -158,15 +143,14 @@
 			isa = PBXGroup;
 			children = (
 				4351DFEA213DBDBE00DB378F /* AppDelegate.swift */,
+				4317E259215DA8E900A381F3 /* fonts */,
 				4351E04221457C9900DB378F /* Controller */,
 				4351E04121457C8000DB378F /* Model */,
 				4351E03C213DD8FA00DB378F /* Yelp Client */,
 				4351E04B2148B62E00DB378F /* View */,
-				4351DFF4213DBDC000DB378F /* Assets.xcassets */,
 				4351DFF6213DBDC000DB378F /* LaunchScreen.storyboard */,
 				4351DFF9213DBDC000DB378F /* Info.plist */,
 				4351DFF1213DBDBE00DB378F /* NextEat.xcdatamodeld */,
-				4351E01B213DD2E600DB378F /* IBM_Plex_Mono */,
 			);
 			path = NextEat;
 			sourceTree = "<group>";
@@ -187,29 +171,6 @@
 				4351E00F213DBDC000DB378F /* Info.plist */,
 			);
 			path = NextEatUITests;
-			sourceTree = "<group>";
-		};
-		4351E01B213DD2E600DB378F /* IBM_Plex_Mono */ = {
-			isa = PBXGroup;
-			children = (
-				4351E01C213DD2E600DB378F /* IBMPlexMono-Bold.ttf */,
-				4351E01D213DD2E600DB378F /* IBMPlexMono-BoldItalic.ttf */,
-				4351E01E213DD2E600DB378F /* IBMPlexMono-ExtraLight.ttf */,
-				4351E01F213DD2E600DB378F /* IBMPlexMono-ExtraLightItalic.ttf */,
-				4351E020213DD2E600DB378F /* IBMPlexMono-Italic.ttf */,
-				4351E021213DD2E600DB378F /* IBMPlexMono-Light.ttf */,
-				4351E022213DD2E600DB378F /* IBMPlexMono-LightItalic.ttf */,
-				4351E023213DD2E600DB378F /* IBMPlexMono-Medium.ttf */,
-				4351E024213DD2E600DB378F /* IBMPlexMono-MediumItalic.ttf */,
-				4351E025213DD2E600DB378F /* IBMPlexMono-Regular.ttf */,
-				4351E026213DD2E600DB378F /* IBMPlexMono-SemiBold.ttf */,
-				4351E027213DD2E600DB378F /* IBMPlexMono-SemiBoldItalic.ttf */,
-				4351E028213DD2E600DB378F /* IBMPlexMono-Thin.ttf */,
-				4351E029213DD2E600DB378F /* IBMPlexMono-ThinItalic.ttf */,
-				4351E02A213DD2E600DB378F /* OFL.txt */,
-			);
-			name = IBM_Plex_Mono;
-			path = ../../../../../../../Documents/Creative/fonts/IBM_Plex_Mono;
 			sourceTree = "<group>";
 		};
 		4351E03C213DD8FA00DB378F /* Yelp Client */ = {
@@ -250,8 +211,7 @@
 				4351DFEE213DBDBE00DB378F /* Main.storyboard */,
 				4351E0452145A15500DB378F /* PlaceCell.swift */,
 				4317E24C2156999D00A381F3 /* CityCell.swift */,
-				4317E24A215491BA00A381F3 /* sushiCatIcon.png */,
-				4317E246215357BE00A381F3 /* NextEatStartGif.png */,
+				4317E255215DA75200A381F3 /* Assets.xcassets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,27 +320,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4351E038213DD2E600DB378F /* IBMPlexMono-ThinItalic.ttf in Resources */,
-				4351E02C213DD2E600DB378F /* IBMPlexMono-BoldItalic.ttf in Resources */,
-				4351E02E213DD2E600DB378F /* IBMPlexMono-ExtraLightItalic.ttf in Resources */,
-				4317E247215357BE00A381F3 /* NextEatStartGif.png in Resources */,
-				4351E035213DD2E600DB378F /* IBMPlexMono-SemiBold.ttf in Resources */,
-				4351E032213DD2E600DB378F /* IBMPlexMono-Medium.ttf in Resources */,
+				4317E273215DA97500A381F3 /* IBMPlexMono-Regular.ttf in Resources */,
 				4317E253215B1E1E00A381F3 /* README.md in Resources */,
-				4351E02B213DD2E600DB378F /* IBMPlexMono-Bold.ttf in Resources */,
 				4351DFF8213DBDC000DB378F /* LaunchScreen.storyboard in Resources */,
-				4351E036213DD2E600DB378F /* IBMPlexMono-SemiBoldItalic.ttf in Resources */,
-				4351E02D213DD2E600DB378F /* IBMPlexMono-ExtraLight.ttf in Resources */,
-				4351E033213DD2E600DB378F /* IBMPlexMono-MediumItalic.ttf in Resources */,
-				4351DFF5213DBDC000DB378F /* Assets.xcassets in Resources */,
-				4351E037213DD2E600DB378F /* IBMPlexMono-Thin.ttf in Resources */,
-				4351E039213DD2E600DB378F /* OFL.txt in Resources */,
 				4351DFF0213DBDBE00DB378F /* Main.storyboard in Resources */,
-				4351E034213DD2E600DB378F /* IBMPlexMono-Regular.ttf in Resources */,
-				4317E24B215491BA00A381F3 /* sushiCatIcon.png in Resources */,
-				4351E02F213DD2E600DB378F /* IBMPlexMono-Italic.ttf in Resources */,
-				4351E031213DD2E600DB378F /* IBMPlexMono-LightItalic.ttf in Resources */,
-				4351E030213DD2E600DB378F /* IBMPlexMono-Light.ttf in Resources */,
+				4317E256215DA75200A381F3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegate
+class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate
 {
     
     var chosenPlace: Restaurant?
@@ -35,15 +35,17 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
     {
         super .viewDidLoad()
         setDetails()
+        subscribeKeyboardNotifications()
         if favorited
         {
             addButton.isHidden = true
             addButton.isUserInteractionEnabled = false
+            myFavoriteDish.delegate = self
             
             if myFavoriteDish.text == "What did you like here?"
             {
-            myFavoriteDish.clearsOnBeginEditing = true
-            myFavoriteDish.alpha = 0.3
+                myFavoriteDish.clearsOnBeginEditing = true
+                myFavoriteDish.alpha = 0.3
             }
             else
             {
@@ -57,6 +59,12 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
         super .viewWillAppear(true)
         cityExists = false
         setupFetchedResultsController()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super .viewWillDisappear(true)
+        unsubscribeFromKeyboardNotifications()
     }
     
     func setDetails()
@@ -81,28 +89,28 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
     
     func saveChosenPlace(_ restaurant: Restaurant)
     {
-            let newPlace = Place(context: self.dataController.viewContext)
-            newPlace.name = restaurant.name
-            newPlace.city = restaurant.city
-            newPlace.image = restaurant.image
-            newPlace.phone = restaurant.phone
-            newPlace.rating = restaurant.rating
+        let newPlace = Place(context: self.dataController.viewContext)
+        newPlace.name = restaurant.name
+        newPlace.city = restaurant.city
+        newPlace.image = restaurant.image
+        newPlace.phone = restaurant.phone
+        newPlace.rating = restaurant.rating
         if !cityExists
         {
             let newCity = City(context: self.dataController.viewContext)
             newCity.name = restaurant.city
             currentCity = newCity
         }
-            newPlace.location = currentCity!
-
-            do
-            {
-                try dataController.viewContext.save()
-            }
-            catch
-            {
-                print("couldn't save")
-            }
+        newPlace.location = currentCity!
+        
+        do
+        {
+            try dataController.viewContext.save()
+        }
+        catch
+        {
+            print("couldn't save")
+        }
     }
     
     @IBAction func savePlace(_ sender: Any)
@@ -111,6 +119,11 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
         saveChosenPlace(chosenPlace!)
         addButton.isUserInteractionEnabled = false
         addButton.alpha = 0.2
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        textField.alpha = 1.0
     }
     
     func checkCities()
@@ -165,7 +178,8 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
                     citiesFetched = true
                 }
             }
-            catch {
+            catch
+            {
                 print("fetch count didn't work")
             }
         }
@@ -173,5 +187,48 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
         {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
+    }
+    
+    //MARK: Keyboard notifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        //delegate method
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat
+    {
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
+    @objc func keyboardWillShow(_ notification:Notification)
+    {
+        
+        view.frame.origin.y = 0 - getKeyboardHeight(notification)
+        
+    }
+    
+    @objc func keyboardWillHide(_ notification:Notification)
+    {
+        view.frame.origin.y = 0
+    }
+    
+    func subscribeKeyboardNotifications()
+    {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications()
+    {
+        
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        
     }
 }

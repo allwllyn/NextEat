@@ -20,16 +20,20 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Next Eat would like to use your location.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Can Next Eat use your location to find places nearby?</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Next Eat wants to use your location to search for restaurants</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>IBMPlexMono-Regular.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-	<key>NSLocationUsageDescription</key>
-	<string>Can Next Eat use your location to find places nearby?</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Next Eat would like to use your location.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Next Eat wants to use your location to search for restaurants</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -37,8 +41,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
