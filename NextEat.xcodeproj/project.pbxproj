@@ -13,7 +13,7 @@
 		4317E24D2156999D00A381F3 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317E24C2156999D00A381F3 /* CityCell.swift */; };
 		4317E253215B1E1E00A381F3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4317E252215B1E1D00A381F3 /* README.md */; };
 		4317E279215DB16500A381F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4317E278215DB16500A381F3 /* Assets.xcassets */; };
-		4317E293215DB2D400A381F3 /* IBMPlexMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4317E285215DB2D400A381F3 /* IBMPlexMono-Regular.ttf */; };
+		4317E29C215DB95200A381F3 /* IBMPlexMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4317E29E215DB95200A381F3 /* IBMPlexMono-Regular.ttf */; };
 		4351DFEB213DBDBE00DB378F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351DFEA213DBDBE00DB378F /* AppDelegate.swift */; };
 		4351DFED213DBDBE00DB378F /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4351DFEC213DBDBE00DB378F /* StartController.swift */; };
 		4351DFF0213DBDBE00DB378F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4351DFEE213DBDBE00DB378F /* Main.storyboard */; };
@@ -54,7 +54,7 @@
 		4317E24C2156999D00A381F3 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		4317E252215B1E1D00A381F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4317E278215DB16500A381F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = SOURCE_ROOT; };
-		4317E285215DB2D400A381F3 /* IBMPlexMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexMono-Regular.ttf"; sourceTree = "<group>"; };
+		4317E29D215DB95200A381F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/IBMPlexMono-Regular.ttf"; sourceTree = "<group>"; };
 		4351DFE7213DBDBE00DB378F /* NextEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4351DFEA213DBDBE00DB378F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4351DFEC213DBDBE00DB378F /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
@@ -102,20 +102,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4317E27A215DB27300A381F3 /* fonts */ = {
+		4317E299215DB8F600A381F3 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				4317E27B215DB2D400A381F3 /* IBM_Plex_Mono */,
+				4317E29E215DB95200A381F3 /* IBMPlexMono-Regular.ttf */,
 			);
 			path = fonts;
-			sourceTree = "<group>";
-		};
-		4317E27B215DB2D400A381F3 /* IBM_Plex_Mono */ = {
-			isa = PBXGroup;
-			children = (
-				4317E285215DB2D400A381F3 /* IBMPlexMono-Regular.ttf */,
-			);
-			path = IBM_Plex_Mono;
 			sourceTree = "<group>";
 		};
 		4351DFDE213DBDBE00DB378F = {
@@ -207,7 +199,7 @@
 		4351E04B2148B62E00DB378F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4317E27A215DB27300A381F3 /* fonts */,
+				4317E299215DB8F600A381F3 /* fonts */,
 				4351DFEE213DBDBE00DB378F /* Main.storyboard */,
 				4351E0452145A15500DB378F /* PlaceCell.swift */,
 				4317E24C2156999D00A381F3 /* CityCell.swift */,
@@ -319,9 +311,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4317E293215DB2D400A381F3 /* IBMPlexMono-Regular.ttf in Resources */,
 				4317E253215B1E1E00A381F3 /* README.md in Resources */,
 				4351DFF8213DBDC000DB378F /* LaunchScreen.storyboard in Resources */,
+				4317E29C215DB95200A381F3 /* IBMPlexMono-Regular.ttf in Resources */,
 				4351DFF0213DBDBE00DB378F /* Main.storyboard in Resources */,
 				4317E279215DB16500A381F3 /* Assets.xcassets in Resources */,
 			);
@@ -397,6 +389,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4317E29E215DB95200A381F3 /* IBMPlexMono-Regular.ttf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4317E29D215DB95200A381F3 /* Base */,
+			);
+			name = "IBMPlexMono-Regular.ttf";
+			sourceTree = "<group>";
+		};
 		4351DFEE213DBDBE00DB378F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
