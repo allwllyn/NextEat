@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 class Yelper: NSObject {
-
+    
     var cityArray: [String] = []
     var placeArray: [Restaurant] = []
     var filteredArray: [Restaurant] = []
     var dataController: DataController!
-
+    
     
     private func yelpURLFromParameters(_ parameters: [String: AnyObject]) -> URL
     {
@@ -36,19 +36,19 @@ class Yelper: NSObject {
     }
     
     
-    func searchByPhrase(cityText: String, termText: String)
+    func searchByPhrase(cityText: String, termText: String, _ completion: @escaping (_ success: Bool) -> Void)
     {
-    
+        
         if !cityText.isEmpty
         {
-           
+            
             // TODO: Set necessary parameters!
             let methodParameters =
-            [
-                Constants.YelpParameterKeys.Location: cityText,
-                Constants.YelpParameterKeys.Term: termText,
-                Constants.YelpParameterKeys.SortBy: Constants.YelpParameterValues.Sorter,
-                Constants.YelpParameterKeys.Limit: Constants.YelpParameterValues.LimitAmount, Constants.YelpParameterKeys.Category: Constants.YelpParameterValues.Category
+                [
+                    Constants.YelpParameterKeys.Location: cityText,
+                    Constants.YelpParameterKeys.Term: termText,
+                    Constants.YelpParameterKeys.SortBy: Constants.YelpParameterValues.Sorter,
+                    Constants.YelpParameterKeys.Limit: Constants.YelpParameterValues.LimitAmount, Constants.YelpParameterKeys.Category: Constants.YelpParameterValues.Category
             ]
             placesFromYelpBySearch(methodParameters as [String:AnyObject])
             {
@@ -56,7 +56,11 @@ class Yelper: NSObject {
                 if success
                 {
                     print("succesful!")
-
+                    completion(true)
+                }
+                else
+                {
+                    completion(false)
                 }
             }
         }
@@ -67,28 +71,32 @@ class Yelper: NSObject {
         }
     }
     
-    func searchNearby(latitude: String, longitude: String, text: String)
+    func searchNearby(latitude: String, longitude: String, text: String, _ completion: @escaping (_ success: Bool) -> Void)
     {
         
         
-            // TODO: Set necessary parameters!
-            let methodParameters =
+        // TODO: Set necessary parameters!
+        let methodParameters =
             [
-                    Constants.YelpParameterKeys.Term: text,
-                    Constants.YelpParameterKeys.Latitude: latitude,
-                    Constants.YelpParameterKeys.Longitude: longitude,
-                    Constants.YelpParameterKeys.SortBy: Constants.YelpParameterValues.Sorter,
-                    Constants.YelpParameterKeys.Limit: Constants.YelpParameterValues.LimitAmount, Constants.YelpParameterKeys.Category: Constants.YelpParameterValues.Category
-            ]
-            placesFromYelpBySearch(methodParameters as [String:AnyObject])
+                Constants.YelpParameterKeys.Term: text,
+                Constants.YelpParameterKeys.Latitude: latitude,
+                Constants.YelpParameterKeys.Longitude: longitude,
+                Constants.YelpParameterKeys.SortBy: Constants.YelpParameterValues.Sorter,
+                Constants.YelpParameterKeys.Limit: Constants.YelpParameterValues.LimitAmount, Constants.YelpParameterKeys.Category: Constants.YelpParameterValues.Category
+        ]
+        placesFromYelpBySearch(methodParameters as [String:AnyObject])
+        {
+            success in
+            if success
             {
-                success in
-                if success
-                {
-                    print("succesful!")
-                    
-                }
+                completion(true)
+                print("succesful!")
             }
+            else
+            {
+                completion(false)
+            }
+        }
     }
     
     private func placesFromYelpBySearch(_ methodParameters: [String: AnyObject], _ completion: @escaping (_ success: Bool) -> Void)
@@ -108,12 +116,12 @@ class Yelper: NSObject {
             else
             {
                 print(error!.localizedDescription)
+                completion(false)
             }
             
             func displayError(_ error: String)
             {
                 print(error)
-                
             }
             /* GUARD: Was there an error? */
             guard (error == nil) else
@@ -162,44 +170,44 @@ class Yelper: NSObject {
             {
                 for i in placeList
                 {
-                
+                    
                     let location = i["location"] as! [String:AnyObject]
-                  //  let cityName = location["city"] as! String
+                    //  let cityName = location["city"] as! String
                     
-                   
-                        let name = (i["name"] as! String)
-                        let city = (location["city"] as! String)
-                        let phone = (i["phone"] as! String)
-                        let rating = (i["rating"] as! Double)
                     
-                        var placeRestaurant = Restaurant(name: name, city: city, phone: phone, rating: rating.description)
+                    let name = (i["name"] as! String)
+                    let city = (location["city"] as! String)
+                    let phone = (i["phone"] as! String)
+                    let rating = (i["rating"] as! Double)
                     
-                        var binary: Data
-                            let imageURL = URL(string: i["image_url"] as! String)
-                            if let imageData = try? Data(contentsOf: imageURL!)
-                            {
-                                let image = UIImage(data: imageData)
-                                let imageBinary = UIImageJPEGRepresentation(image! , 1)
-                                binary = imageBinary!
-                                placeRestaurant.image = binary
-                            }
+                    var placeRestaurant = Restaurant(name: name, city: city, phone: phone, rating: rating.description)
                     
-                  self.placeArray.append(placeRestaurant)
+                    var binary: Data
+                    let imageURL = URL(string: i["image_url"] as! String)
+                    if let imageData = try? Data(contentsOf: imageURL!)
+                    {
+                        let image = UIImage(data: imageData)
+                        let imageBinary = UIImageJPEGRepresentation(image! , 1)
+                        binary = imageBinary!
+                        placeRestaurant.image = binary
+                    }
+                    
+                    self.placeArray.append(placeRestaurant)
                 }
                 if self.placeArray.count > 0
                 {
                     completion(true)
                 }
-            print(self.placeArray)
+                print(self.placeArray)
             }
-         
+            
         }
         task.resume()
         
         print(yelpURLFromParameters(methodParameters))
     }
     
-
+    //MARK: Create Singleton
     class func sharedInstance() -> Yelper
     {
         struct Singleton

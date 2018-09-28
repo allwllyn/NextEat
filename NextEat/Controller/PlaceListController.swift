@@ -58,7 +58,9 @@ class PlaceListController: UITableViewController, NSFetchedResultsControllerDele
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super .viewWillAppear(true)
         if fetching
         {
            // fetchedResults soemthing

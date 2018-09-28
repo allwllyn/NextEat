@@ -157,8 +157,6 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
     @objc fileprivate func setupFetchedResultsController()
     {
         let fetchRequest:NSFetchRequest<City> = City.fetchRequest()
-        //let cityPredicate = NSPredicate(format: "%K = %@", "name", "\(chosenPlace!.city)")
-        //fetchRequest.predicate = cityPredicate
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         

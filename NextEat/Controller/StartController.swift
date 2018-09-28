@@ -41,8 +41,8 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         tapRecognizer.delegate = self
         actIndicator.isHidden = true
         localManager.delegate = self
-        self.localManager.requestAlwaysAuthorization()
-        self.localManager.requestWhenInUseAuthorization()
+        localManager.requestAlwaysAuthorization()
+        localManager.requestWhenInUseAuthorization()
         setupFetchedResultsController()
         
         if CLLocationManager.locationServicesEnabled()
@@ -104,14 +104,26 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         yelper.placeArray = []
         
         yelper.searchByPhrase(cityText: cityText.text!, termText: searchText.text!)
+        {
+            success in
+            if !success
+            {
+                self.formatAlert()
+                self.deactivateActView()
+            }
+            else
+            {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
+                
+                vc.fetching = false
+                vc.dataController = self.startDataController
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
         
-        vc.fetching = false
-        vc.dataController = startDataController
-        
-        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -126,27 +138,44 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         if location != nil
         {
             yelper.searchNearby(latitude: (location?.latitude.description)!, longitude: (location?.longitude.description)!, text: searchText.text!)
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
-            
-            vc.fetching = false
-            vc.dataController = startDataController
-            
-            self.navigationController?.pushViewController(vc, animated: true)
+            {
+                success in
+                if !success
+                {
+                    self.formatAlert()
+                    self.deactivateActView()
+                }
+                else
+                {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "placeListController") as! PlaceListController
+                    
+                    vc.fetching = false
+                    vc.dataController = self.startDataController
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
         }
         else
         {
-            print("location not working")
+            formatAlert()
         }
     }
     
     
     func activateActView()
     {
-        self.view.alpha = 0.5
+        view.alpha = 0.5
         actIndicator.isHidden = false
         actIndicator.startAnimating()
+    }
+    
+    func deactivateActView()
+    {
+        view.alpha = 1.0
+        actIndicator.isHidden = true
+        actIndicator.stopAnimating()
     }
     
     @objc fileprivate func setupFetchedResultsController()
@@ -203,6 +232,21 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         location = locValue
     }
+    
+    //MARK: Format Alert
+    
+    let alert = UIAlertController(title: "Trouble Connecting", message: "There appears to be a network problem.", preferredStyle: .alert)
+    
+    
+    func formatAlert()
+    {
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
+    
+    
+    
     //MARK: Keyboard notifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
