@@ -153,7 +153,7 @@ class PlaceDetailController: UIViewController, NSFetchedResultsControllerDelegat
             print("unable to save")
         }
     }
-    
+    //MARK: Fetched Reseults  - - - - - - - - - - - - - - - - - - -
     @objc fileprivate func setupFetchedResultsController()
     {
         let fetchRequest:NSFetchRequest<City> = City.fetchRequest()

@@ -171,11 +171,15 @@ class StartController: UIViewController, UIGestureRecognizerDelegate, UINavigati
         actIndicator.startAnimating()
     }
     
+    //MARK: Add deactivation of activity indicator
     func deactivateActView()
     {
-        view.alpha = 1.0
-        actIndicator.isHidden = true
-        actIndicator.stopAnimating()
+        DispatchQueue.main.async
+        {
+            self.view.alpha = 1.0
+            self.actIndicator.isHidden = true
+            self.actIndicator.stopAnimating()
+        }
     }
     
     @objc fileprivate func setupFetchedResultsController()
